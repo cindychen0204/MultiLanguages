@@ -63,8 +63,6 @@ namespace HoloToolkit.Unity
         /// </summary>
         private readonly InputManagerAxis[] obsoleteInputAxes = { };
 
-        private bool updateToolkitAxes;
-
         #region Nested Types
 
         public enum ProjectSetting
@@ -117,8 +115,6 @@ namespace HoloToolkit.Unity
 
         protected override void ApplySettings()
         {
-            SaveMenuSettings();
-
             // Apply individual settings
             if (Values[ProjectSetting.BuildWsaUwp])
             {
@@ -152,7 +148,7 @@ namespace HoloToolkit.Unity
                     case ProjectSetting.WsaUwpBuildToD3D:
                     case ProjectSetting.DotNetScriptingBackend:
                     case ProjectSetting.SetDefaultSpatialMappingLayer:
-                        Values[(ProjectSetting)i] = EditorPrefsUtility.GetEditorPref(Names[(ProjectSetting)i], true);
+                        Values[(ProjectSetting)i] = true;
                         break;
                     case ProjectSetting.TargetOccludedDevices:
                         Values[(ProjectSetting)i] = EditorPrefsUtility.GetEditorPref(Names[(ProjectSetting)i], false);
@@ -167,10 +163,12 @@ namespace HoloToolkit.Unity
                         throw new ArgumentOutOfRangeException();
                 }
             }
+
         }
 
         private void UpdateSettings(BuildTarget currentBuildTarget)
         {
+            EditorPrefsUtility.SetEditorPref(Names[ProjectSetting.SharingServices], Values[ProjectSetting.SharingServices]);
             if (Values[ProjectSetting.SharingServices])
             {
                 string sharingServiceDirectory = Directory.GetParent(Path.GetFullPath(Application.dataPath)).FullName + "\\External\\HoloToolkit\\Sharing\\Server";
@@ -232,9 +230,11 @@ namespace HoloToolkit.Unity
                 PlayerSettings.WSA.SetCapability(PlayerSettings.WSACapability.PrivateNetworkClientServer, false);
             }
 
-            if (updateToolkitAxes)
+            bool useToolkitAxes = Values[ProjectSetting.UseInputManagerAxes];
+
+            if (useToolkitAxes != EditorPrefsUtility.GetEditorPref(Names[ProjectSetting.UseInputManagerAxes], false))
             {
-                bool useToolkitAxes = Values[ProjectSetting.UseInputManagerAxes];
+                EditorPrefsUtility.SetEditorPref(Names[ProjectSetting.UseInputManagerAxes], useToolkitAxes);
 
                 // Grabs the actual asset file into a SerializedObject, so we can iterate through it and edit it.
                 inputManagerAsset = new SerializedObject(AssetDatabase.LoadAssetAtPath("ProjectSettings/InputManager.asset", typeof(UnityEngine.Object)));
@@ -348,6 +348,8 @@ namespace HoloToolkit.Unity
                     Debug.LogException(e);
                 }
             }
+
+            EditorPrefsUtility.SetEditorPref(Names[ProjectSetting.TargetOccludedDevices], Values[ProjectSetting.TargetOccludedDevices]);
 
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.WSA,
                 Values[ProjectSetting.DotNetScriptingBackend]
@@ -577,7 +579,7 @@ namespace HoloToolkit.Unity
         private bool SetSpatialMappingLayer()
         {
             UnityEngine.Object[] tagAssets = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset");
-            if ((tagAssets == null) ||
+            if ((tagAssets == null) || 
                 (tagAssets.Length == 0))
             {
                 return false;
@@ -610,19 +612,6 @@ namespace HoloToolkit.Unity
             // Set the layer name.
             spatialMappingLayer.stringValue = SpatialMappingLayerName;
             return tagsManager.ApplyModifiedProperties();
-        }
-
-        /// <summary>
-        /// Saves the selected items into EditorPrefs.
-        /// </summary>
-        private void SaveMenuSettings()
-        {
-            updateToolkitAxes = Values[ProjectSetting.UseInputManagerAxes] != EditorPrefsUtility.GetEditorPref(Names[ProjectSetting.UseInputManagerAxes], false);
-
-            for (int i = (int)ProjectSetting.BuildWsaUwp; i <= (int)ProjectSetting.SetDefaultSpatialMappingLayer; i++)
-            {
-                EditorPrefsUtility.SetEditorPref(Names[(ProjectSetting)i], Values[(ProjectSetting)i]);
-            }
         }
     }
 }

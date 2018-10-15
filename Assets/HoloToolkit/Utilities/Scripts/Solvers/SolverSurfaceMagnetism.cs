@@ -90,8 +90,10 @@ namespace HoloToolkit.Unity
         private const float maxDot = 0.97f;
         #endregion
 
-        protected void Start()
+        protected override void Start()
         {
+            base.Start();
+
             if (raycastMode == RaycastModeEnum.Box)
             {
                 m_BoxCollider = GetComponent<BoxCollider>();

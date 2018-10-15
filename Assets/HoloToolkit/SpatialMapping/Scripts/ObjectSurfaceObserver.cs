@@ -52,19 +52,12 @@ namespace HoloToolkit.Unity.SpatialMapping
 
                 for (int iMesh = 0; iMesh < roomFilters.Length; iMesh++)
                 {
-                    MeshFilter meshFilter = roomFilters[iMesh];
-
-                    SurfaceObject newSurfaceObject = CreateSurfaceObject(
-                        mesh: meshFilter.sharedMesh,
+                    AddSurfaceObject(CreateSurfaceObject(
+                        mesh: roomFilters[iMesh].sharedMesh,
                         objectName: "roomMesh-" + iMesh,
                         parentObject: transform,
                         meshID: iMesh
-                        );
-
-                    newSurfaceObject.Object.transform.localPosition = meshFilter.transform.position;
-                    newSurfaceObject.Object.transform.localRotation = meshFilter.transform.rotation;
-
-                    AddSurfaceObject(newSurfaceObject);
+                        ));
                 }
             }
             catch

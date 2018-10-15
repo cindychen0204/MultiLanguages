@@ -35,19 +35,6 @@ namespace HoloToolkit.Unity.UX
         /// </summary>
         public float HoverOffsetZ = 0f;
 
-        [SerializeField]
-        [Tooltip("Uses an alternate follow style that works better for very oblong objects.")]
-        private bool useTightFollow = false;
-
-        /// <summary>
-        /// Uses an alternate follow style that works better for very oblong objects
-        /// </summary>
-        public bool UseTightFollow
-        {
-            get { return useTightFollow; }
-            set { useTightFollow = value; }
-        }
-
         /// <summary>
         /// Class used for building toolbar buttons
         /// (not yet in use)
@@ -69,7 +56,10 @@ namespace HoloToolkit.Unity.UX
 
             public bool IsEmpty
             {
-                get { return string.IsNullOrEmpty(Name); }
+                get
+                {
+                    return string.IsNullOrEmpty(Name);
+                }
             }
 
             public int DefaultPosition;
@@ -108,26 +98,33 @@ namespace HoloToolkit.Unity.UX
 
         public BoundingBox BoundingBox
         {
-            get { return boundingBox; }
-            set { boundingBox = value; }
-        }
-
-        private BoundingBoxRig boundingRig;
-
-        /// <summary>
-        /// a reference to the boundingBoxRig that the appbar turns on and off
-        /// </summary>
-        public BoundingBoxRig BoundingRig
-        {
-            get { return boundingRig; }
-            set { boundingRig = value; }
+            get
+            {
+                return boundingBox;
+            }
+            set
+            {
+                boundingBox = value;
+            }
         }
 
         public GameObject SquareButtonPrefab;
 
-        public int NumDefaultButtons { get; private set; }
+        public int NumDefaultButtons
+        {
+            get
+            {
+                return numDefaultButtons;
+            }
+        }
 
-        public int NumManipulationButtons { get; private set; }
+        public int NumManipulationButtons
+        {
+            get
+            {
+                return numManipulationButtons;
+            }
+        }
 
         public bool UseRemove = true;
         public bool UseAdjust = true;
@@ -135,14 +132,25 @@ namespace HoloToolkit.Unity.UX
 
         public ButtonTemplate[] Buttons
         {
-            get { return buttons; }
-            set { buttons = value; }
+            get
+            {
+                return buttons;
+            }
+            set
+            {
+                buttons = value;
+            }
         }
 
-        public ButtonTemplate[] DefaultButtons { get; private set; }
+        public ButtonTemplate[] DefaultButtons
+        {
+            get
+            {
+                return defaultButtons;
+            }
+        }
 
         public AppBarDisplayTypeEnum DisplayType = AppBarDisplayTypeEnum.Manipulation;
-
         public AppBarStateEnum State = AppBarStateEnum.Default;
 
         /// <summary>
@@ -155,22 +163,25 @@ namespace HoloToolkit.Unity.UX
         private ButtonTemplate[] buttons = new ButtonTemplate[MaxCustomButtons];
 
         [SerializeField]
-        private Transform buttonParent = null;
+        private Transform buttonParent;
 
         [SerializeField]
-        private GameObject baseRenderer = null;
+        private GameObject baseRenderer;
 
         [SerializeField]
-        private GameObject backgroundBar = null;
+        private GameObject backgroundBar;
 
         [SerializeField]
         private BoundingBox boundingBox;
 
+        private ButtonTemplate[] defaultButtons;
+        private Vector3[] forwards = new Vector3[4];
         private Vector3 targetBarSize = Vector3.one;
         private float lastTimeTapped = 0f;
         private float coolDownTime = 0.5f;
+        private int numDefaultButtons;
         private int numHiddenButtons;
-        private BoundingBoxHelper helper;
+        private int numManipulationButtons;
 
         public void Reset()
         {
@@ -182,13 +193,12 @@ namespace HoloToolkit.Unity.UX
         public void Start()
         {
             State = AppBarStateEnum.Default;
-
             if (interactables.Count == 0)
             {
                 RefreshTemplates();
-                for (int i = 0; i < DefaultButtons.Length; i++)
+                for (int i = 0; i < defaultButtons.Length; i++)
                 {
-                    CreateButton(DefaultButtons[i], null);
+                    CreateButton(defaultButtons[i], null);
                 }
 
                 for (int i = 0; i < buttons.Length; i++)
@@ -196,8 +206,6 @@ namespace HoloToolkit.Unity.UX
                     CreateButton(buttons[i], CustomButtonIconProfile);
                 }
             }
-
-            helper = new BoundingBoxHelper();
         }
 
         protected override void InputClicked(GameObject obj, InputClickedEventData eventData)
@@ -208,7 +216,6 @@ namespace HoloToolkit.Unity.UX
             }
 
             lastTimeTapped = Time.time;
-
             base.InputClicked(obj, eventData);
 
             switch (obj.name)
@@ -260,24 +267,24 @@ namespace HoloToolkit.Unity.UX
             switch (template.Type)
             {
                 case ButtonTypeEnum.Custom:
-                    NumDefaultButtons++;
+                    numDefaultButtons++;
                     break;
 
                 case ButtonTypeEnum.Adjust:
-                    NumDefaultButtons++;
+                    numDefaultButtons++;
                     break;
 
                 case ButtonTypeEnum.Done:
-                    NumManipulationButtons++;
+                    numManipulationButtons++;
                     break;
 
                 case ButtonTypeEnum.Remove:
-                    NumManipulationButtons++;
-                    NumDefaultButtons++;
+                    numManipulationButtons++;
+                    numDefaultButtons++;
                     break;
 
                 case ButtonTypeEnum.Hide:
-                    NumDefaultButtons++;
+                    numDefaultButtons++;
                     break;
 
                 case ButtonTypeEnum.Show:
@@ -315,23 +322,41 @@ namespace HoloToolkit.Unity.UX
             // Show our buttons
             baseRenderer.SetActive(true);
 
-            //calculate best follow position for AppBar
+            // Get positions for each side of the bounding box
+            // Choose the one that's closest to us
+            forwards[0] = boundingBox.transform.forward;
+            forwards[1] = boundingBox.transform.right;
+            forwards[2] = -boundingBox.transform.forward;
+            forwards[3] = -boundingBox.transform.right;
+            Vector3 scale = boundingBox.TargetBoundsLocalScale;
+            float maxXYScale = Mathf.Max(scale.x, scale.y);
+            float closestSoFar = Mathf.Infinity;
             Vector3 finalPosition = Vector3.zero;
+            Vector3 finalForward = Vector3.zero;
             Vector3 headPosition = Camera.main.transform.position;
-            LayerMask ignoreLayers = new LayerMask();
-            List<Vector3> boundsPoints = new List<Vector3>();
-            if (boundingBox != null)
-            {
-                helper.UpdateNonAABoundingBoxCornerPositions(boundingBox.Target, boundsPoints, ignoreLayers);
-                int followingFaceIndex = helper.GetIndexOfForwardFace(headPosition);
-                Vector3 faceNormal = helper.GetFaceNormal(followingFaceIndex);
 
-                //finally we have new position
-                finalPosition = helper.GetFaceBottomCentroid(followingFaceIndex) + (faceNormal * HoverOffsetZ);
+            for (int i = 0; i < forwards.Length; i++)
+            {
+                Vector3 nextPosition = boundingBox.transform.position +
+                (forwards[i] * -maxXYScale) +
+                (Vector3.up * (-scale.y * HoverOffsetYScale));
+
+                float distance = Vector3.Distance(nextPosition, headPosition);
+                if (distance < closestSoFar)
+                {
+                    closestSoFar = distance;
+                    finalPosition = nextPosition;
+                    finalForward = forwards[i];
+                }
             }
 
+            // Apply hover offset
+            finalPosition += (finalForward * -HoverOffsetZ);
+
             // Follow our bounding box
-            transform.position = smooth ? Vector3.Lerp(transform.position, finalPosition, 0.5f) : finalPosition;
+            transform.position = smooth ?
+                Vector3.Lerp(transform.position, finalPosition, 0.5f) :
+                finalPosition;
 
             // Rotate on the y axis
             Vector3 eulerAngles = Quaternion.LookRotation((boundingBox.transform.position - finalPosition).normalized, Vector3.up).eulerAngles;
@@ -347,7 +372,7 @@ namespace HoloToolkit.Unity.UX
             switch (State)
             {
                 case AppBarStateEnum.Default:
-                    targetBarSize = new Vector3(NumDefaultButtons * buttonWidth, buttonWidth, 1f);
+                    targetBarSize = new Vector3(numDefaultButtons * buttonWidth, buttonWidth, 1f);
                     break;
 
                 case AppBarStateEnum.Hidden:
@@ -355,7 +380,7 @@ namespace HoloToolkit.Unity.UX
                     break;
 
                 case AppBarStateEnum.Manipulation:
-                    targetBarSize = new Vector3(NumManipulationButtons * buttonWidth, buttonWidth, 1f);
+                    targetBarSize = new Vector3(numManipulationButtons * buttonWidth, buttonWidth, 1f);
                     break;
 
                 default:
@@ -395,7 +420,7 @@ namespace HoloToolkit.Unity.UX
                 defaultButtonsList.Add(GetDefaultButtonTemplateFromType(ButtonTypeEnum.Hide, numCustomButtons, UseHide, UseAdjust));
                 defaultButtonsList.Add(GetDefaultButtonTemplateFromType(ButtonTypeEnum.Show, numCustomButtons, UseHide, UseAdjust));
             }
-            DefaultButtons = defaultButtonsList.ToArray();
+            defaultButtons = defaultButtonsList.ToArray();
         }
 
 #if UNITY_EDITOR
@@ -439,7 +464,7 @@ namespace HoloToolkit.Unity.UX
                     return new ButtonTemplate(
                         ButtonTypeEnum.Adjust,
                         "Adjust",
-                        "AppBarAdjust",
+                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
                         "Adjust",
                         adjustPosition, // Always next-to-last to appear
                         0);
@@ -448,7 +473,7 @@ namespace HoloToolkit.Unity.UX
                     return new ButtonTemplate(
                         ButtonTypeEnum.Done,
                         "Done",
-                        "AppBarDone",
+                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
                         "Done",
                         0,
                         0);
@@ -457,7 +482,7 @@ namespace HoloToolkit.Unity.UX
                     return new ButtonTemplate(
                         ButtonTypeEnum.Hide,
                         "Hide",
-                        "AppBarHide",
+                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
                         "Hide Menu",
                         0, // Always the first to appear
                         0);
@@ -477,7 +502,7 @@ namespace HoloToolkit.Unity.UX
                     return new ButtonTemplate(
                         ButtonTypeEnum.Remove,
                         "Remove",
-                        "KeyboardKeyGlyphs_Close",
+                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
                         "Remove",
                         removePosition, // Always the last to appear
                         1);
@@ -486,7 +511,7 @@ namespace HoloToolkit.Unity.UX
                     return new ButtonTemplate(
                         ButtonTypeEnum.Show,
                         "Show",
-                        "AppBarShow",
+                        "ObjectCollectionScatter", // Replace with your custom icon texture name in HolographicButton prefab
                         "Show Menu",
                         0,
                         0);

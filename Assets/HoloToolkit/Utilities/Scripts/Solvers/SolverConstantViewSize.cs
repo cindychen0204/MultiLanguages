@@ -71,8 +71,10 @@ namespace HoloToolkit.Unity
         private float objectDistancePercent = 1f;
         #endregion
 
-        protected void Start()
+        protected override void Start()
         {
+            base.Start();
+
             float baseSize = CalculateObjectSize();
 
             if (baseSize > 0)

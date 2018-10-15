@@ -118,9 +118,6 @@ namespace HoloToolkit.Unity.InputModule
         protected ICursorModifier TargetedCursorModifier;
 
         private uint visibleHandsCount = 0;
-
-        [SerializeField]
-        [Tooltip("Set this to specify if the Cursor should start visible or invisible in the scene.")]
         private bool isVisible = true;
 
         /// <summary>
@@ -150,21 +147,22 @@ namespace HoloToolkit.Unity.InputModule
 
         #region MonoBehaviour Functions
 
-        protected virtual void Awake()
+        private void Awake()
         {
             originalDefaultCursorDistance = DefaultCursorDistance;
 
             // Use the setter to update visibility of the cursor at startup based on user preferences
             IsVisible = isVisible;
+            SetVisibility(isVisible);
         }
 
-        protected virtual void Start()
+        private void Start()
         {
             RegisterManagers();
             TryLoadPointerIfNeeded();
         }
 
-        protected virtual void Update()
+        private void Update()
         {
             UpdateCursorState();
             UpdateCursorTransform();
@@ -194,7 +192,7 @@ namespace HoloToolkit.Unity.InputModule
             OnCursorStateChange(CursorStateEnum.Contextual);
         }
 
-        protected virtual void OnDestroy()
+        private void OnDestroy()
         {
             UnregisterManagers();
         }

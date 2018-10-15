@@ -285,7 +285,7 @@ namespace HoloToolkit.Unity.SharingWithUNET
                 CanShareAnchors = !Application.isEditor && UnityEngine.VR.VRDevice.isPresent;
 #endif
 #endif
-                Debug.LogFormat("local player {0} share anchors ", (CanShareAnchors ? "does" : "does not"));
+                Debug.LogFormat("local player {0} share anchors ", (CanShareAnchors ? "does not" : "does"));
                 CmdSetCanShareAnchors(CanShareAnchors);
             }
         }

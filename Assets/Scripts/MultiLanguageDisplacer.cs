@@ -1,12 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace LanguageTK
 {
     public class MultiLanguageDisplacer : MonoBehaviour
     {
+        /// <summary>
+        /// Enum Languages:English,Japanese,ChineseTra,ChineseSimp,
+        /// </summary>
         [SerializeField]
         private Languages languages;
+
+        //private ILoader.GoogleSheetLoader languageDic;
+
 
         private void Awake()
         {

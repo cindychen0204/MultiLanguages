@@ -2,11 +2,14 @@
 using System.IO;
 using UnityEngine;
 using System;
+using System.Runtime.InteropServices;
 
 namespace LanguageTK
 {
-    public class Loader : ILoader
-    {
+    public class GoogleSheetLoader { 
+        
+
+
         /// <summary>
         /// CSVファイル
         /// </summary>
@@ -17,84 +20,36 @@ namespace LanguageTK
         /// </summary>
         private Dictionary<Tuple<string, string>, string> LanguageTable = new Dictionary<Tuple<string, string>, string> ();
 
+        TranslationData translationData = new TranslationData();
 
-        //internal class LanguageTable
-        //{
-        //}
-
-
-        /// <summary>
-        /// CSVの読み込んだ行数
-        /// </summary>
-        private int rowCount;
-
-
-        public void Load(Dictionary<Tuple<string, string>, string> LanguageDict)
-        {
-            throw new System.NotImplementedException();
-        }
-
-
-        void Main(string[] args)
-        {
-
-            LoadCSV("StringTable.csv");
-        }
+        //private static string key[] = translationData.Key;
+       
 
         /// <summary>
         /// CSVファイルを読み込みます
         /// </summary>
         /// <param name="filenameWithExt">拡張子付きファイル名</param>
-        private void LoadCSV(string filenameWithExt)
+        private void loadGoogleSheetdata()
         {
-            // 拡張子無し文字列にする
-            string filename = Path.GetFileNameWithoutExtension(filenameWithExt.Trim());
 
             LanguageTable.Clear();
-            rowCount = 0;
-            
-            // CSV読み込み
-            //Debug.Log("CSV FileName:" + filename);
-            csvFile = Resources.Load("Localize/" + filename) as TextAsset;
-            //Debug.Log(csvFile);
-
+            int count = 0;
+           
             // 一行ずつ読み込み処理する
-            using (StringReader reader = new StringReader(csvFile.text))
-            {
-
-                while (reader.Peek() > -1)
-                {
-
-                    string line = reader.ReadLine();
-                    var column = line.Split(',');
-                    // 0列目がキー、1列目がバリュー想定のCSV
+            while (count < LanguageTable.Count) { 
 
                     if (Application.systemLanguage == SystemLanguage.English)
                     {
-                        LanguageTable.Add(Tuple.Create(column[0], Languages.English.ToString()), column[1]);
+                        //LanguageTable.Add(Tuple.Create("en", Languages.English.ToString()), column[1]);
+                        continue;
+                        
                     }
 
-                    else if (Application.systemLanguage == SystemLanguage.Japanese)
-                    {
-                        LanguageTable.Add(Tuple.Create(column[0], Languages.English.ToString()), column[2]);
-
-                    }
-                    else if (Application.systemLanguage == SystemLanguage.ChineseTraditional)
-                    {
-                        LanguageTable.Add(Tuple.Create(column[0], Languages.English.ToString()), column[3]);
-
-                    }
-                    else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
-                    {
-                        LanguageTable.Add(Tuple.Create(column[0], Languages.English.ToString()), column[4]);
-
-                    }
-                    rowCount++;
+                    
                 }
             }
-        }
-    
-    }
+        
 
-    
+       
+    }
 }

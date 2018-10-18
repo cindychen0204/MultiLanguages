@@ -8,7 +8,7 @@ namespace HKT
     /// <summary>
     /// ローカライズ処理のサンプル
     /// </summary>
-    public class LocalizeHoloLens : MonoBehaviour
+    public class LocalizeLocalCSV : MonoBehaviour
     {
         /// <summary>
         /// CSVファイル

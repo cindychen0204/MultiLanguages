@@ -24,9 +24,8 @@ MonoBehaviour:
     - zh-CN
     zhtw:
     - zh-TW
-    sourcelanguage:
-    - Source-language
-    translationresources: []
+    sourcelanguage: Source-language
+    translationresources: 
   - key:
     - yes
     en:
@@ -37,10 +36,8 @@ MonoBehaviour:
     - "\u662F"
     zhtw:
     - "\u662F"
-    sourcelanguage:
-    - en
-    translationresources:
-    - yes
+    sourcelanguage: en
+    translationresources: yes
   - key:
     - no
     en:
@@ -51,10 +48,8 @@ MonoBehaviour:
     - "\u6CA1\u6709"
     zhtw:
     - "\u6C92\u6709"
-    sourcelanguage:
-    - en
-    translationresources:
-    - no
+    sourcelanguage: en
+    translationresources: no
   - key:
     - hello
     en:
@@ -65,10 +60,8 @@ MonoBehaviour:
     - "\u4F60\u597D"
     zhtw:
     - "\u4F60\u597D"
-    sourcelanguage:
-    - en
-    translationresources:
-    - hello
+    sourcelanguage: en
+    translationresources: hello
   - key:
     - ok
     en:
@@ -79,10 +72,8 @@ MonoBehaviour:
     - "\u597D"
     zhtw:
     - "\u597D"
-    sourcelanguage:
-    - en
-    translationresources:
-    - ok
+    sourcelanguage: en
+    translationresources: ok
   - key:
     - wait
     en:
@@ -93,10 +84,8 @@ MonoBehaviour:
     - "\u7B49\u5F85"
     zhtw:
     - "\u7B49\u5F85"
-    sourcelanguage:
-    - en
-    translationresources:
-    - wait
+    sourcelanguage: en
+    translationresources: wait
   - key:
     - settings
     en:
@@ -107,10 +96,8 @@ MonoBehaviour:
     - "\u8BBE\u7F6E"
     zhtw:
     - "\u8A2D\u7F6E"
-    sourcelanguage:
-    - en
-    translationresources:
-    - settings
+    sourcelanguage: en
+    translationresources: settings
   - key:
     - easy
     en:
@@ -121,10 +108,8 @@ MonoBehaviour:
     - "\u7B80\u5355"
     zhtw:
     - "\u7C21\u55AE"
-    sourcelanguage:
-    - en
-    translationresources:
-    - easy
+    sourcelanguage: en
+    translationresources: easy
   - key:
     - hard
     en:
@@ -135,10 +120,8 @@ MonoBehaviour:
     - "\u786C"
     zhtw:
     - "\u786C"
-    sourcelanguage:
-    - en
-    translationresources:
-    - hard
+    sourcelanguage: en
+    translationresources: hard
   - key:
     - stage
     en:
@@ -149,10 +132,8 @@ MonoBehaviour:
     - "\u9636\u6BB5"
     zhtw:
     - "\u968E\u6BB5"
-    sourcelanguage:
-    - en
-    translationresources:
-    - stage
+    sourcelanguage: en
+    translationresources: stage
   - key:
     - hello
     en:
@@ -163,10 +144,8 @@ MonoBehaviour:
     - "\u4F60\u597D"
     zhtw:
     - "\u4F60\u597D"
-    sourcelanguage:
-    - en
-    translationresources:
-    - hello
+    sourcelanguage: en
+    translationresources: hello
   - key:
     - done
     en:
@@ -177,10 +156,8 @@ MonoBehaviour:
     - DONE
     zhtw:
     - DONE
-    sourcelanguage:
-    - en
-    translationresources:
-    - done
+    sourcelanguage: en
+    translationresources: done
   - key:
     - adjust
     en:
@@ -191,10 +168,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - remove
     en:
@@ -205,10 +180,8 @@ MonoBehaviour:
     - "\u53BB\u6389"
     zhtw:
     - "\u53BB\u6389"
-    sourcelanguage:
-    - en
-    translationresources:
-    - remove
+    sourcelanguage: en
+    translationresources: remove
   - key:
     - showmenu
     en:
@@ -219,10 +192,8 @@ MonoBehaviour:
     - "\u8282\u76EE\u83DC\u5355"
     zhtw:
     - "\u7BC0\u76EE\u83DC\u55AE"
-    sourcelanguage:
-    - en
-    translationresources:
-    - showmenu
+    sourcelanguage: en
+    translationresources: show menu
   - key:
     - hidemenu
     en:
@@ -233,10 +204,8 @@ MonoBehaviour:
     - "\u9690\u85CF\u83DC\u5355"
     zhtw:
     - "\u96B1\u85CF\u83DC\u55AE"
-    sourcelanguage:
-    - en
-    translationresources:
-    - hidemenu
+    sourcelanguage: en
+    translationresources: hide menu
   - key:
     - adjust
     en:
@@ -247,10 +216,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -261,10 +228,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -275,10 +240,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -289,10 +252,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -303,10 +264,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -317,10 +276,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -331,10 +288,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -345,10 +300,8 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust
   - key:
     - adjust
     en:
@@ -359,7 +312,5 @@ MonoBehaviour:
     - "\u8C03\u6574"
     zhtw:
     - "\u8ABF\u6574"
-    sourcelanguage:
-    - en
-    translationresources:
-    - adjust
+    sourcelanguage: en
+    translationresources: adjust

@@ -29,11 +29,11 @@ public class TranslationData
   public string[] Zhtw { get {return zhtw; } set { zhtw = value;} }
   
   [SerializeField]
-  string[] sourcelanguage = new string[0];
-  public string[] Sourcelanguage { get {return sourcelanguage; } set { sourcelanguage = value;} }
+  string sourcelanguage;
+  public string Sourcelanguage { get {return sourcelanguage; } set { sourcelanguage = value;} }
   
   [SerializeField]
-  string[] translationresources = new string[0];
-  public string[] Translationresources { get {return translationresources; } set { translationresources = value;} }
+  string translationresources;
+  public string Translationresources { get {return translationresources; } set { translationresources = value;} }
   
 }

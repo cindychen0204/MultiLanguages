@@ -12,9 +12,6 @@ namespace LanguageTK
         [SerializeField]
         private Languages languages;
 
-        //private ILoader.GoogleSheetLoader languageDic;
-
-
         private void Awake()
         {
             if (this.GetComponent<TextMesh>() != null)

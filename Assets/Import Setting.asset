@@ -17,32 +17,32 @@ MonoBehaviour:
   sheetName: Holo_MultiLanguages
   workSheetName: Translation
   columnHeaderList:
-  - type: 0
+  - type: 1
     name: key
     isEnable: 0
     isArray: 1
-  - type: 0
+  - type: 1
     name: en
     isEnable: 0
     isArray: 1
-  - type: 0
+  - type: 1
     name: ja
     isEnable: 0
     isArray: 1
-  - type: 0
+  - type: 1
     name: zhCN
     isEnable: 0
     isArray: 1
-  - type: 0
+  - type: 1
     name: zhTW
     isEnable: 0
     isArray: 1
   - type: 0
     name: Sourcelanguage
     isEnable: 0
-    isArray: 1
+    isArray: 0
   - type: 0
     name: TranslationResources
     isEnable: 0
-    isArray: 1
+    isArray: 0
   AccessCode: 

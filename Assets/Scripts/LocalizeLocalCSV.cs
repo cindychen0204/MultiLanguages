@@ -112,8 +112,9 @@ namespace HKT
                     if (Application.systemLanguage == SystemLanguage.English)
                     {
                         dict.Add(column[0], column[1]);
-                       
+
                     }
+
                     else if (Application.systemLanguage == SystemLanguage.Japanese)
                     {
                         dict.Add(column[0], column[2]);

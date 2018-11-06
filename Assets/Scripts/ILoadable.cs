@@ -9,10 +9,15 @@ namespace MultiLanguageTK
         /// <summary>
         /// Load google sheet
         /// </summary>
-        /// <param name="LanguageDict"> return CSV/DB results</param>
+        /// <param nam
+        /// e="LanguageDict"> return CSV/DB results</param>
+        ///
+        /// 
         void GoogleSheetLoader();
 
         string TranslationResults(string targetLang,string resourceLang,string input);
+
+
 
 
     }

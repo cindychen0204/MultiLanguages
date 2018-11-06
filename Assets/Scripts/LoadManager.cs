@@ -6,37 +6,11 @@ using UnityEngine;
 
 namespace MultiLanguageTK
 {
-    public class LoadManager : Singleton<LoadManager>, ILoadable
+    public partial class LoadManager : Singleton<LoadManager>, ILoadable
     {
 
         [SerializeField] private Translation translation;
         private object targetLang;
-
-        //Set tuple <<TargetLang,resource>,Transresult>
-
-        /// <summary>
-        /// 翻訳の言語の決定
-        /// </summary>
-        [HideInInspector]
-        public enum TargetLang
-        {
-            En,
-            Ja,
-            Zhcn,
-            Zhtw
-        };
-
-        /// <summary>
-        /// リソース言語の決定
-        /// </summary>
-        [HideInInspector]
-        public enum ResourceLang
-        {
-            En,
-            Ja,
-            Zhcn,
-            Zhtw
-        };
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
@@ -48,7 +22,7 @@ namespace MultiLanguageTK
         {
 
             GoogleSheetLoader();
-            Debug.Log(TranslationResults(ResourceLang.En.ToString(), TargetLang.Zhcn.ToString(), "HELLO"));
+            Debug.Log(TranslationResults(ResourceLang.En.ToString(), TargetLang.Zhcn.ToString(), "sssLO"));
 
         }
 
@@ -110,22 +84,33 @@ namespace MultiLanguageTK
 
         public string TranslationResults(string targetLang, string resourceLang, string input)
         {
-           
-        
-            if (LanguageDict.ContainsKey(new Tuple<string, string, string>(targetLang, resourceLang, input.ToLower())))
+            try
             {
                 return LanguageDict[new Tuple<string, string, string>(targetLang, resourceLang, input.ToLower())];
+
+            }
+            catch (Exception ex)
+            {
+
+                //Debug.Log(ex);
+                return "Key not found in the dictionary.";
             }
 
-        
-            return "Result not found.";
         }
 
 
         public static void AddSafe(Dictionary<Tuple<string, string, string>, string> languageDict, Tuple<string, string, string> key, string value)
         {
-            if (!languageDict.ContainsKey(key))
+            try
+            {
                 languageDict.Add(key, value);
+
+            }
+            catch (Exception ex)
+            {
+
+                //Debug.Log(ex);
+            }
 
             return;
         }

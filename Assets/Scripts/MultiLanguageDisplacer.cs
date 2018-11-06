@@ -2,15 +2,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LanguageTK
+namespace MultiLanguageTK
 {
     public class MultiLanguageDisplacer : MonoBehaviour
     {
         /// <summary>
-        /// Enum Languages:English,Japanese,ChineseTra,ChineseSimp,
+        /// Not for use
         /// </summary>
-        [SerializeField]
-        private Languages languages;
+        //[SerializeField]
+        //private Languages languages;
 
         private void Awake()
         {

@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MultiLanguageTK
 {
-    public class TextReplacer : TranslationTextBase
+    public class TextMeshReplacer : TranslationTextBase
     {
 
         public override void Replace()
         {
             try
             {
-                var text = this.GetComponent<Text>().text;
+                var text = this.GetComponent<TextMesh>().text;
+                text = translationResult;
             }
 
             catch (Exception ex)

@@ -10,11 +10,16 @@ namespace MultiLanguageTK
     {
         public abstract void Replace();
 
+        protected string translationResult;
 
         ILoadable load = new LoadManager();
 
-        public TargetLang TargetLanguage;
+        [SerializeField]
+        private TargetLang TargetLanguage;
 
-        public ResourceLang ResourceLanguage;
+        [SerializeField]
+        private ResourceLang ResourceLanguage;
+
+
     }
 }

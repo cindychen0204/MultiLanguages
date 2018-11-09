@@ -6,19 +6,16 @@ namespace MultiLanguageTK
     public interface ILoadable
     {
 
+
         /// <summary>
-        /// Load google sheet
+        /// Translation interface: it will return a translation result
         /// </summary>
-        /// <param nam
-        /// e="LanguageDict"> return CSV/DB results</param>
-        ///
-        /// 
-        void GoogleSheetLoader();
+        /// <param name="resourceLang"></param>
+        /// <param name="targetLang"></param>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        string TranslationResults(string resourceLang, string targetLang, string input);
 
-        string TranslationResults(string targetLang,string resourceLang,string input);
-
-
-
-
+        string Hello(string input);
     }
 }

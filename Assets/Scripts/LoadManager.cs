@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using HoloToolkit.Unity;
 using UnityEngine;
 
 namespace MultiLanguageTK
 {
-    public partial class LoadManager : Singleton<LoadManager>, ILoadable
+    public class LoadManager : Singleton<LoadManager>, ILoadable
     {
 
         [SerializeField] private Translation translation;
-        private object targetLang;
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
-        /// Tuple<元言語、ターゲット言語、翻訳したい内容>
+        /// Tuple<元言語、ターゲット言語、翻訳したい内容>, Dictionary のValueは翻訳結果
         /// </summary>
-        private Dictionary<Tuple<string, string,string>, string> LanguageDict = new Dictionary<Tuple<string, string, string>, string>() ;
+        private static Dictionary<Tuple<string, string, string>, string> LanguageDict = new Dictionary<Tuple<string, string, string>, string>();
 
-        void Awake()
+
+
+        void Start()
         {
 
             GoogleSheetLoader();
-            Debug.Log(TranslationResults(ResourceLang.En.ToString(), TargetLang.Zhcn.ToString(), "sssLO"));
-
+            LanguageDict.Clear();
+            //TranslationResults(ResourceLang.Ja.ToString(), TargetLang.En.ToString(), "調整");
         }
 
 
@@ -82,20 +82,48 @@ namespace MultiLanguageTK
 
         }
 
-        public string TranslationResults(string targetLang, string resourceLang, string input)
+        public string TranslationResults(string resourceLang,string targetLang, string input)
         {
+            //英語対応
+            input = input.ToLower();
             try
             {
-                return LanguageDict[new Tuple<string, string, string>(targetLang, resourceLang, input.ToLower())];
+                
+                Debug.Log("input:" + input);
+                Debug.Log("resource:" + resourceLang);
+
+                Debug.Log("target:" + targetLang);
+
+                Debug.Log("Output :" + LanguageDict[new Tuple<string, string, string>(resourceLang, targetLang, input)]);
+                
+                return LanguageDict[new Tuple<string, string, string>(resourceLang, targetLang, input)];
+
 
             }
             catch (Exception ex)
             {
 
-                //Debug.Log(ex);
+                Debug.Log(ex);
+
+                //Debug.Log("false :" + targetLang);
                 return "Key not found in the dictionary.";
+                
             }
 
+        }
+
+        public string Hello(string input)
+        {
+
+            //Byte[] encodedBytes = asc2Encoding.GetBytes(input);
+            //string output = asc2Encoding.GetString(encodedBytes);
+
+            var text = "調整";
+
+            Debug.Log("Local string: " + input);
+            Debug.Log("Local string: text" + text);
+
+            return input;
         }
 
 

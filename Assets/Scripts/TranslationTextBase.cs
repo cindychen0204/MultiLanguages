@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace MultiLanguageTK
@@ -8,18 +6,19 @@ namespace MultiLanguageTK
 
     public abstract class TranslationTextBase : MonoBehaviour
     {
+        private readonly ILoadable _loadable = new LoadManager();
+ 
+
+        [SerializeField] protected ResourceLang ResourceLanguage;
+       
+
+        [Tooltip("Settings for resource language.")]
+        [SerializeField] private bool AutoDetectLanguage = true;
+        [SerializeField] protected TargetLang TargetLanguage;
+
+
+
         public abstract void Replace();
-
-        protected string translationResult;
-
-        ILoadable load = new LoadManager();
-
-        [SerializeField]
-        private TargetLang TargetLanguage;
-
-        [SerializeField]
-        private ResourceLang ResourceLanguage;
-
 
     }
 }

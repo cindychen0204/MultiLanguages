@@ -5,8 +5,6 @@ namespace MultiLanguageTK
 {
     public interface ILoadable
     {
-
-
         /// <summary>
         /// Translation interface: it will return a translation result
         /// </summary>

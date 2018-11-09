@@ -6,14 +6,7 @@ namespace MultiLanguageTK
 {
     public class TextReplacer : TranslationTextBase
     {
-        private readonly ILoadable loadable;
 
-        public TextReplacer(ILoadable _loadable) : base()
-        {
-            _loadable = loadable;
-
-
-        }
 
         public override void Replace()
         {

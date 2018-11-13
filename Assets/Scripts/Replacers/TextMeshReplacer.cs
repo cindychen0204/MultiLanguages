@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace MultiLanguageTK
 {
@@ -9,15 +9,16 @@ namespace MultiLanguageTK
 
             Replace();
         }
-        
+
         public override void Replace()
         {
 
-            Debug.Log("‚É‚Ù‚ñ‚²@“ú–{Œê@ƒjƒzƒ“ƒS");
-            var tmp = _loadable.Hello("’²®");
-            Debug.Log($"Return output: {_loadable.Hello("’²®")} ƒNƒ‰ƒXƒCƒ“ƒ^[ƒtƒF[ƒXŒo—R");
+            Debug.Log("ã«ã»ã‚“ã”ã€€æ—¥æœ¬èªã€€ãƒ‹ãƒ›ãƒ³ã‚´");
+            var tmp = _loadable.Hello("èª¿æ•´");
+            Debug.Log($"Return output: {_loadable.Hello("èª¿æ•´")} ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹çµŒç”±");
 
         }
 
+    
     }
 }

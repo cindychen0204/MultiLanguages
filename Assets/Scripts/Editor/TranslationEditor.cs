@@ -6,7 +6,7 @@ using System.Text;
 
 using GDataDB;
 using GDataDB.Linq;
-
+using MultiLanguageTK;
 using UnityQuickSheet;
 
 ///

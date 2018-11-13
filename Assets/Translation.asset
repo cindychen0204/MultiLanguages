@@ -185,19 +185,19 @@ MonoBehaviour:
   - key:
     - showmenu
     en:
-    - showmenu
+    - show menu
     ja:
     - "\u30E1\u30CB\u30E5\u30FC\u8868\u793A"
     zhcn:
-    - "\u8282\u76EE\u83DC\u5355"
+    - "\u663E\u793A\u83DC\u5355"
     zhtw:
-    - "\u7BC0\u76EE\u83DC\u55AE"
+    - "\u986F\u793A\u83DC\u55AE"
     sourcelanguage: en
     translationresources: show menu
   - key:
     - hidemenu
     en:
-    - hidemenu
+    - hide menu
     ja:
     - "\u30E1\u30CB\u30E5\u30FC\u975E\u8868\u793A"
     zhcn:

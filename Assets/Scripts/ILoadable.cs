@@ -14,8 +14,9 @@ namespace MultiLanguageTK
         /// <returns></returns>
         string TranslationResults(string resourceLang, string targetLang, string input);
 
-        string Hello(string input);
-    }
+        bool DictionaryCompleted { set; get; }
 
+        void GoogleSheetLoader();
+    }
 }
     

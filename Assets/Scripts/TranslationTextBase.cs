@@ -8,8 +8,10 @@ namespace MultiLanguageTK
 
         public abstract void Replace();
 
-        [SerializeField] protected ResourceLang ResourceLanguage;
-        [SerializeField] protected TargetLang TargetLanguage;
+
+        [SerializeField] protected Languages ResourceLanguage;
+
+        [SerializeField] protected Languages TargetLanguage;
 
         [Tooltip("Settings for resource language.")] [SerializeField]
         protected bool AutoDetectLanguage = true;

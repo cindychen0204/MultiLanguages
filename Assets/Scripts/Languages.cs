@@ -3,7 +3,7 @@
 namespace MultiLanguageTK
 {
 
-    public enum ResourceLang
+    public enum Languages
     {
         En,
         Ja,

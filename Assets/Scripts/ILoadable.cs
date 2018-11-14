@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Threading.Tasks;
 
 namespace MultiLanguageTK
 {
@@ -12,11 +13,7 @@ namespace MultiLanguageTK
         /// <param name="targetLang"></param>
         /// <param name="input"></param>
         /// <returns></returns>
-        string TranslationResults(string resourceLang, string targetLang, string input);
-
-        bool DictionaryCompleted { set; get; }
-
-        void GoogleSheetLoader();
+        Task<string> TranslationResultsAsync(Languages resource, Languages target, string input);
     }
 }
     

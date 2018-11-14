@@ -6,11 +6,11 @@ namespace MultiLanguageTK
     public class TextMeshReplacer : TranslationTextBase
     {
         [SerializeField] private TextMesh textmesh;
-
-        private TargetLang language;
+        
 
         void Awake()
         {
+           
             Replace();
         }
 
@@ -19,22 +19,20 @@ namespace MultiLanguageTK
             //Debug.Log(Loadable.TranslationResults(ResourceLanguage.ToString(), TargetLanguage.ToString(), textmesh.text));
         }
 
-        public override async void Replace()
+        public async override void Replace()
         {
             string transResults = null;
             //結果ディクショナリーのインプットを待つ
-            await Task.Run(() => Loadable.GoogleSheetLoader());
+            
 
             if (AutoDetectLanguage)
             {
                 DetectEnviromentalLanguage();
-                transResults =
-                    Loadable.TranslationResults(ResourceLanguage.ToString(), language.ToString(), textmesh.text);
+                transResults = await Loadable.TranslationResultsAsync(ResourceLanguage, TargetLanguage, textmesh.text);
             }
             else
             {
-                transResults = Loadable.TranslationResults(ResourceLanguage.ToString(), TargetLanguage.ToString(),
-                    textmesh.text);
+                transResults = await Loadable.TranslationResultsAsync(ResourceLanguage, TargetLanguage, textmesh.text);
             }
 
             textmesh.text = transResults;
@@ -46,24 +44,24 @@ namespace MultiLanguageTK
         {
             if (Application.systemLanguage == SystemLanguage.English)
             {
-                language = TargetLang.En;
-                TargetLanguage = TargetLang.En;
+                TargetLanguage = Languages.En;
             }
 
             else if (Application.systemLanguage == SystemLanguage.Japanese)
             {
-                language = TargetLang.Ja;
-                TargetLanguage = TargetLang.Ja;
+                TargetLanguage = Languages.Ja;
+
             }
             else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
             {
-                language = TargetLang.Zhcn;
-                TargetLanguage = TargetLang.Zhcn;
+
+                TargetLanguage = Languages.Zhcn;
+
             }
             else if (Application.systemLanguage == SystemLanguage.ChineseTraditional)
             {
-                language = TargetLang.Zhtw;
-                TargetLanguage = TargetLang.Zhtw;
+                TargetLanguage = Languages.Zhtw;
+
             }
         }
     }

@@ -1,25 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MultiLanguageTK
 {
-    public sealed class LoadManager : MonoBehaviour, ILoadable
+    /// <summary>
+    /// implement for MRTK singleton
+    /// </summary>
+    public sealed class MutliLanguageManager : MonoBehaviour, ILoadable
     {
+        private EventInjector eventChecker = new EventInjector();
+
+        public TextMeshReplacer TextMeshReplacer  = new TextMeshReplacer();
+
+
+        public MutliLanguageManager()
+        {
+            
+        }
+
+
+        /// <summary>
+        /// get all children from an abstract class
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="constructorArgs"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> GetEnumerableOfType<T>(params object[] constructorArgs) where T : class, IComparable<T>
+        {
+            List<T> objects = new List<T>();
+            foreach (Type type in
+                Assembly.GetAssembly(typeof(T)).GetTypes()
+                    .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T))))
+            {
+                objects.Add((T)Activator.CreateInstance(type, constructorArgs));
+            }
+            objects.Sort();
+            return objects;
+        }
+
+        /// <summary>
+        ///  Collecting data from googleTranslation Sheet (Quick-Sheet)
+        /// </summary>
         [SerializeField] private Translation _translation;
 
-        public class DictionaryKey
-        {
-            public DictionaryKey(Languages resource,Languages target,string input){
-                this.resource = resource;
-                this.target = target;
-                this.input = input;
-            }
-            public Languages resource;
-            public Languages target;
-            public string input;
-        }
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
@@ -27,32 +54,53 @@ namespace MultiLanguageTK
         /// </summary>
         private static Dictionary<DictionaryKey, string> _languageDict = new Dictionary<DictionaryKey, string>();
 
+       
+        /// <summary>
+        /// Event pointer
+        /// </summary>
+        public event GoogleSheetInjectedEventHandler googleSheetDictionaryInjected;
+
+       
+
 
         /// <summary>
         /// Singleton implement
         /// </summary>
-        private static readonly LoadManager _loadManager = new LoadManager();
-
-        public static LoadManager GetInstance()
+        public static MutliLanguageManager GetInstance()
         {
-            return _loadManager;
+            return new MutliLanguageManager();
         }
 
-        public async void Start()
+        public void OngoogleSheetDictionaryInjected()
         {
+            if (googleSheetDictionaryInjected != null)
+            {
+                googleSheetDictionaryInjected(this,EventArgs.Empty);
+            }
+
+        }
+
+        public void Start()
+        {
+
+            googleSheetDictionaryInjected += eventChecker.OngoogleSheetDictionaryInjected;
+
             GoogleSheetLoader();
+
             Debug.Log(_translation);
-            //TranslationResultsAsync(Languages.En, Languages.Ja, "hello")
-            string x = await TranslationResultsAsync(Languages.En, Languages.Ja, "hello");
+
+            //TranslationResults(Languages.En, Languages.Ja, "hello")
+           // string x = TranslationResults(Languages.En, Languages.Ja, "hello");
+
         }
 
-        public async Task GoogleSheetLoader()
+        public void GoogleSheetLoader()
         {
             _languageDict.Clear();
 
             var languageArray = _translation.dataArray;
 
-            //Load GoogleSheet into dictionary
+            //Collecting GoogleSheet into dictionary
             Parallel.For(0, languageArray.Length, i =>
             {
                 //Debug.Log(T.En[0]);
@@ -90,13 +138,15 @@ namespace MultiLanguageTK
 
             });
 
+            OngoogleSheetDictionaryInjected();
 
+          
         }
 
-        public async Task<string> TranslationResultsAsync(Languages resource, Languages target, string input)
+        public string TranslationResults(Languages resource, Languages target, string input)
         {
             input.ToLower();
-            await GoogleSheetLoader();
+            GoogleSheetLoader();
 
             string value = null;
             if (_languageDict.TryGetValue(new DictionaryKey(resource, target, input), out value))
@@ -118,7 +168,7 @@ namespace MultiLanguageTK
                 return;
             }
 
-            Debug.Log("Key : "+ key +  "value : "+ value);
+            //Debug.Log("Key : "+ key +  "value : "+ value);
 
             _languageDict.Add(key,value);
         }

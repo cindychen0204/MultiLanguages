@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 using UnityEngine;
 
 namespace MultiLanguageTK
@@ -6,12 +6,21 @@ namespace MultiLanguageTK
     public class TextMeshReplacer : TranslationTextBase
     {
         [SerializeField] private TextMesh textmesh;
-        
 
+        ILoadable Loadable = MutliLanguageManager.GetInstance();
+
+        public TextMeshReplacer()
+        {
+            
+        }
+        /// <summary>
+        /// Memo: Implemented before Start() method in MultiLanguageManger.cs
+        /// </summary>
         void Awake()
         {
-           
-            Replace();
+          
+            Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
+
         }
 
         void Update()
@@ -19,26 +28,50 @@ namespace MultiLanguageTK
             //Debug.Log(Loadable.TranslationResults(ResourceLanguage.ToString(), TargetLanguage.ToString(), textmesh.text));
         }
 
-        public async override void Replace()
+        public override void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
+
             string transResults = null;
-            //結果ディクショナリーのインプットを待つ
-            
 
             if (AutoDetectLanguage)
             {
                 DetectEnviromentalLanguage();
-                transResults = await Loadable.TranslationResultsAsync(ResourceLanguage, TargetLanguage, textmesh.text);
+                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
             }
             else
             {
-                transResults = await Loadable.TranslationResultsAsync(ResourceLanguage, TargetLanguage, textmesh.text);
+                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
             }
 
             textmesh.text = transResults;
 
-            Debug.Log(transResults);
+
+
+            Debug.Log("Translation Results:" + transResults);
+
+            //Debug.Log(e);
         }
+
+        //public override void Replace()
+        //{
+        //    string transResults = null;
+        //    //結果ディクショナリーのインプットを待つ
+            
+
+        //    if (AutoDetectLanguage)
+        //    {
+        //        DetectEnviromentalLanguage();
+        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
+        //    }
+        //    else
+        //    {
+        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
+        //    }
+
+        //    textmesh.text = transResults;
+
+        //    Debug.Log(transResults);
+        //}
 
         void DetectEnviromentalLanguage()
         {
@@ -64,5 +97,10 @@ namespace MultiLanguageTK
 
             }
         }
+
+        //public override void Replace()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

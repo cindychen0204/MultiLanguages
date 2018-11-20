@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
+﻿using System;
+
+public delegate void GoogleSheetInjectedEventHandler(object source, EventArgs args);
+
 
 namespace MultiLanguageTK
 {
@@ -13,7 +14,11 @@ namespace MultiLanguageTK
         /// <param name="targetLang"></param>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<string> TranslationResultsAsync(Languages resource, Languages target, string input);
+        string TranslationResults(Languages resource, Languages target, string input);
+        
+        event GoogleSheetInjectedEventHandler googleSheetDictionaryInjected;
+
+
     }
 }
     

@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace MultiLanguageTK
 {
     public abstract class TranslationTextBase : MonoBehaviour
     {
-        protected ILoadable Loadable = LoadManager.GetInstance();
+        //protected ILoadable Loadable;
 
-        public abstract void Replace();
+        //public abstract void Replace();
 
+        public abstract void OngoogleSheetDictionaryInjected(object source, EventArgs e);
 
         [SerializeField] protected Languages ResourceLanguage;
 
@@ -15,5 +17,6 @@ namespace MultiLanguageTK
 
         [Tooltip("Settings for resource language.")] [SerializeField]
         protected bool AutoDetectLanguage = true;
+
     }
 }

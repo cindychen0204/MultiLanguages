@@ -13,6 +13,7 @@ namespace MultiLanguageTK
         {
             
         }
+
         /// <summary>
         /// Memo: Implemented before Start() method in MultiLanguageManger.cs
         /// </summary>
@@ -30,6 +31,7 @@ namespace MultiLanguageTK
 
         public override void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
+            Debug.Log("Translation Results:");
 
             string transResults = null;
 

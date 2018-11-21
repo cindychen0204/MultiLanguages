@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MultiLanguageTK
 {
     /// <summary>
-    /// implement for MRTK singleton
+    /// Implement singleton
     /// </summary>
     public sealed class MutliLanguageManager : MonoBehaviour, ILoadable
     {
-        private EventInjector eventChecker = new EventInjector();
+        private EventInjector eventInjector = new EventInjector();
 
-        public TextMeshReplacer TextMeshReplacer  = new TextMeshReplacer();
+        private TextMeshReplacer TextMeshReplacer = new TextMeshReplacer();
 
 
         public MutliLanguageManager()
@@ -22,25 +20,6 @@ namespace MultiLanguageTK
             
         }
 
-
-        /// <summary>
-        /// get all children from an abstract class
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="constructorArgs"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> GetEnumerableOfType<T>(params object[] constructorArgs) where T : class, IComparable<T>
-        {
-            List<T> objects = new List<T>();
-            foreach (Type type in
-                Assembly.GetAssembly(typeof(T)).GetTypes()
-                    .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T))))
-            {
-                objects.Add((T)Activator.CreateInstance(type, constructorArgs));
-            }
-            objects.Sort();
-            return objects;
-        }
 
         /// <summary>
         ///  Collecting data from googleTranslation Sheet (Quick-Sheet)
@@ -83,7 +62,8 @@ namespace MultiLanguageTK
         public void Start()
         {
 
-            googleSheetDictionaryInjected += eventChecker.OngoogleSheetDictionaryInjected;
+            googleSheetDictionaryInjected += eventInjector.OngoogleSheetDictionaryInjected;
+            googleSheetDictionaryInjected += TextMeshReplacer.OngoogleSheetDictionaryInjected;
 
             GoogleSheetLoader();
 

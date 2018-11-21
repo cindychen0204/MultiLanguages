@@ -185,7 +185,7 @@ MonoBehaviour:
   - key:
     - showmenu
     en:
-    - show menu
+    - showmenu
     ja:
     - "\u30E1\u30CB\u30E5\u30FC\u8868\u793A"
     zhcn:
@@ -197,7 +197,7 @@ MonoBehaviour:
   - key:
     - hidemenu
     en:
-    - hide menu
+    - hidemenu
     ja:
     - "\u30E1\u30CB\u30E5\u30FC\u975E\u8868\u793A"
     zhcn:

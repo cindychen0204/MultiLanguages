@@ -1,10 +1,11 @@
 ﻿using System;
 
-public delegate void GoogleSheetInjectedEventHandler(object source, EventArgs args);
 
 
 namespace MultiLanguageTK
 {
+    public delegate void GoogleSheetInjectedEventHandler(object source, EventArgs args);
+
     public interface ILoadable
     {
         /// <summary>

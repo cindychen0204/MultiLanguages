@@ -5,15 +5,19 @@ using UnityEngine;
 
 namespace MultiLanguageTK
 {
+    public enum Languages
+    {
+        En,
+        Ja,
+        Zhcn,
+        Zhtw
+    };
+
     /// <summary>
     /// Implement singleton
     /// </summary>
     public sealed class MutliLanguageManager : MonoBehaviour, ILoadable
     {
-        private EventInjector eventInjector = new EventInjector();
-
-        private TextMeshReplacer TextMeshReplacer = new TextMeshReplacer();
-
 
         public MutliLanguageManager()
         {
@@ -61,9 +65,6 @@ namespace MultiLanguageTK
 
         public void Start()
         {
-
-            googleSheetDictionaryInjected += eventInjector.OngoogleSheetDictionaryInjected;
-            googleSheetDictionaryInjected += TextMeshReplacer.OngoogleSheetDictionaryInjected;
 
             GoogleSheetLoader();
 

@@ -1,14 +1,4 @@
-﻿using UnityEngine;
-
-namespace MultiLanguageTK
+﻿namespace MultiLanguageTK
 {
 
-    public enum Languages
-    {
-        En,
-        Ja,
-        Zhcn,
-        Zhtw
-    };
-    
-}//namespace
+}

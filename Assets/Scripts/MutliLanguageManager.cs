@@ -25,36 +25,18 @@ namespace MultiLanguageTK
         /// </summary>
         [SerializeField] private Translation _translation;
 
-        object objectLock = new Object();
-
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
         /// Tuple<元言語、ターゲット言語、翻訳したい内容>, Dictionary のValueは翻訳結果
         /// </summary>
         private static Dictionary<TranslationKey, string> _languageDict = new Dictionary<TranslationKey, string>();
 
-        /// <summary>
-        /// Event pointer
-        /// </summary>
-        private event EventHandler PregoogleSheetDictionaryInjected;
-        event EventHandler ILoadable.googleSheetDictionaryInjected
-        {
-            add
-            {
-                lock (objectLock)
-                {
-                    PregoogleSheetDictionaryInjected += value;
-                }
-            }
-            remove
-            {
-                lock (objectLock)
-                {
-                    PregoogleSheetDictionaryInjected -= value;
-                }
-            }
 
-        }
+
+        /// <summary>
+        /// no need???/
+        /// </summary>
+        public event EventHandler googleSheetDictionaryInjected;
 
 
         /// <summary>
@@ -67,9 +49,9 @@ namespace MultiLanguageTK
 
         public void OngoogleSheetDictionaryInjected()
         {
-            if (PregoogleSheetDictionaryInjected != null)
+            if (googleSheetDictionaryInjected != null)
             {
-                PregoogleSheetDictionaryInjected(this, EventArgs.Empty);
+                googleSheetDictionaryInjected(this, EventArgs.Empty);
             }
 
         }

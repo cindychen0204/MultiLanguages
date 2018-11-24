@@ -18,6 +18,7 @@ namespace MultiLanguageTK
 
         event EventHandler googleSheetDictionaryInjected;
 
+        string Hello(string input);
 
 
     }

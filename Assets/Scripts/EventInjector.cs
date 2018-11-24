@@ -10,16 +10,20 @@ namespace MultiLanguageTK
     {
         [SerializeField] private TextMesh textmesh;
 
-        ILoadable Loadable = (ILoadable)MutliLanguageManager.Instance;
 
+        private string outputText;
+
+        private ILoadable Loadable;
         /// <summary>
         /// Initialization
         /// </summary>
-        void Awake()
+        void Start()
         {
-            
+            Loadable = (ILoadable)MutliLanguageManager.Instance;
 
             Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
+
+            outputText = textmesh.text;
         }
 
 
@@ -30,13 +34,12 @@ namespace MultiLanguageTK
         /// <param name="e"></param>
         public void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
-            Debug.Log("Translation Results:");
+            string transResults = null;
 
-            string transResults = "Event Completed";
-
+            transResults = Loadable.TranslationResults(Languages.En, Languages.Ja, outputText);
+            //transResults = Loadable.Hello(outputText);
             textmesh.text = transResults;
 
-            Debug.Log("Translation Results:" + transResults);
         }
 
     }

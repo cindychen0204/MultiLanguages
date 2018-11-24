@@ -92,6 +92,11 @@ namespace MultiLanguageTK
         }
 
 
+        public string Hello(string input)
+        {
+            return input;
+        }
+
         /// <summary>
         /// Importing data from GoogleSheet
         /// </summary>
@@ -155,9 +160,9 @@ namespace MultiLanguageTK
         public string TranslationResults(Languages resource, Languages target, string input)
         {
             input.ToLower();
-            GoogleSheetLoader();
 
             string value = null;
+
             if (_languageDict.TryGetValue(new TranslationKey(resource, target, input), out value))
             {
                 Debug.Log("Finding result...." + new TranslationKey(resource, target, input));

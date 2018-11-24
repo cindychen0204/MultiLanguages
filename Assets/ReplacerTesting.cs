@@ -9,13 +9,15 @@ namespace MultiLanguageTK
 
         [SerializeField] private TextMesh textmesh;
 
+        private ILoadable Loadable;
+
 
         /// <summary>
         /// Memo: Implemented before Start() method in MultiLanguageManger.cs
         /// </summary>
-        void Awake()
+        void Start()
         {
-            var Loadable = (ILoadable)MutliLanguageManager.Instance;
+            Loadable = (ILoadable)MutliLanguageManager.Instance;
 
             Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
         }
@@ -23,11 +25,9 @@ namespace MultiLanguageTK
 
         public override void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
-            var Loadable = (ILoadable)MutliLanguageManager.Instance;
+         
 
-            Debug.Log("Translation Results:");
-
-            string transResults = null;
+           string transResults = null;
 
             if (AutoDetectLanguage)
             {
@@ -41,6 +41,8 @@ namespace MultiLanguageTK
 
             textmesh.text = transResults;
 
+
+            Debug.Log("Translation Results:   " + transResults);
 
         }
     }

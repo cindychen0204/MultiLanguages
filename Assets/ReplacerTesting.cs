@@ -15,15 +15,16 @@ namespace MultiLanguageTK
         /// </summary>
         void Awake()
         {
-            ReplacerTesting replacerTesting = this.GetComponent<ReplacerTesting>();
+            var Loadable = (ILoadable)MutliLanguageManager.Instance;
 
-            Loadable.googleSheetDictionaryInjected += replacerTesting.OngoogleSheetDictionaryInjected;
-
+            Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
         }
 
 
         public override void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
+            var Loadable = (ILoadable)MutliLanguageManager.Instance;
+
             Debug.Log("Translation Results:");
 
             string transResults = null;
@@ -40,9 +41,6 @@ namespace MultiLanguageTK
 
             textmesh.text = transResults;
 
-
-
-            Debug.Log("Translation Results:" + transResults);
 
         }
     }

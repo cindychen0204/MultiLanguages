@@ -5,7 +5,7 @@ namespace MultiLanguageTK
 {
     public abstract class TranslationTextBase : MonoBehaviour
     {
-        protected ILoadable Loadable = MutliLanguageManager.Instance;
+        protected ILoadable Loadable;
 
         //public abstract void Replace();
 
@@ -18,5 +18,6 @@ namespace MultiLanguageTK
         [Tooltip("Settings for resource language.")] [SerializeField]
         protected bool AutoDetectLanguage = true;
 
+      
     }
 }

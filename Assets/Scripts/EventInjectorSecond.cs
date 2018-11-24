@@ -3,25 +3,19 @@ using UnityEngine;
 
 namespace MultiLanguageTK
 {
-    /// <summary>
-    /// Implement part of event and delegate
-    /// </summary>
-    public class EventInjector : MonoBehaviour
+    public class EventInjectorSecond : MonoBehaviour
     {
         [SerializeField] private TextMesh textmesh;
-
-        ILoadable Loadable = (ILoadable)MutliLanguageManager.Instance;
 
         /// <summary>
         /// Initialization
         /// </summary>
         void Awake()
         {
-            
+            var Loadable = (ILoadable)MutliLanguageManager.Instance;
 
             Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
         }
-
 
         /// <summary>
         /// Event subscriber
@@ -40,4 +34,4 @@ namespace MultiLanguageTK
         }
 
     }
-} //namespace
+}

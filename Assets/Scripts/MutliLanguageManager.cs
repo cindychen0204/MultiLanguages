@@ -31,10 +31,8 @@ namespace MultiLanguageTK
         /// </summary>
         private static Dictionary<TranslationKey, string> _languageDict = new Dictionary<TranslationKey, string>();
 
-
-
         /// <summary>
-        /// no need???/
+        /// Create an event
         /// </summary>
         public event EventHandler googleSheetDictionaryInjected;
 
@@ -47,6 +45,9 @@ namespace MultiLanguageTK
             return new MutliLanguageManager();
         }
 
+        /// <summary>
+        /// Detection for subscribers
+        /// </summary>
         public void OngoogleSheetDictionaryInjected()
         {
             if (googleSheetDictionaryInjected != null)

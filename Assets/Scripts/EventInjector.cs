@@ -4,20 +4,30 @@ using UnityEngine;
 namespace MultiLanguageTK
 {
     /// <summary>
-    /// implement part of event and delegate
+    /// Implement part of event and delegate
     /// </summary>
     public class EventInjector : MonoBehaviour
     {
         [SerializeField] private static TextMesh textmesh;
 
-        public EventInjector(MutliLanguageManager MLM)
-        {
-            var Loadable = (ILoadable)MLM;
 
-            Loadable.googleSheetDictionaryInjected += MLM_OngoogleSheetDictionaryInjected;
+        /// <summary>
+        /// Initialization
+        /// </summary>
+        void Awake()
+        {
+            var Loadable = (ILoadable) MutliLanguageManager.GetInstance();
+
+            EventInjector eventInjector = this.GetComponent<EventInjector>();
+
+            Loadable.googleSheetDictionaryInjected += eventInjector.MLM_OngoogleSheetDictionaryInjected;
         }
 
-
+        /// <summary>
+        /// Event subscriber
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         public void MLM_OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
             Debug.Log("Translation Results:");
@@ -27,7 +37,6 @@ namespace MultiLanguageTK
             textmesh.text = transResults;
 
             Debug.Log("Translation Results:" + transResults);
-
         }
     }
 } //namespace

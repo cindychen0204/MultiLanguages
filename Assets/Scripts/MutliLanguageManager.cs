@@ -17,13 +17,16 @@ namespace MultiLanguageTK
     /// <summary>
     /// Implement singleton
     /// </summary>
-    public sealed class MutliLanguageManager : MonoBehaviour, ILoadable
+    public sealed class MutliLanguageManager : SingletonMonoBehaviour<MutliLanguageManager>, ILoadable
     {
 
         /// <summary>
         ///  Collecting data from googleTranslation Sheet (Quick-Sheet)
         /// </summary>
         [SerializeField] private Translation _translation;
+
+
+        
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
@@ -40,15 +43,17 @@ namespace MultiLanguageTK
         /// <summary>
         /// Singleton implement
         /// </summary>
-        public static MutliLanguageManager GetInstance()
+
+
+        protected override void Init()
         {
-            return new MutliLanguageManager();
+            base.Init();
         }
 
         /// <summary>
-        /// Detection for subscribers
-        /// </summary>
-        public void OngoogleSheetDictionaryInjected()
+            /// Detection for subscribers
+            /// </summary>
+            public void OngoogleSheetDictionaryInjected()
         {
             if (googleSheetDictionaryInjected != null)
             {
@@ -57,6 +62,8 @@ namespace MultiLanguageTK
 
         }
 
+
+        EventInjector EIJ = new EventInjector();
         void Start()
         {
 
@@ -65,7 +72,10 @@ namespace MultiLanguageTK
             //Debug.Log(_translation);
 
             //TranslationResults(Languages.En, Languages.Ja, "hello")
-            //string x = TranslationResults(Languages.En, Languages.Ja, "hello");
+            //string x = TranslationResults(Languages.En, Languages.Ja, "hello");\
+
+           
+            googleSheetDictionaryInjected += EIJ.MLM_OngoogleSheetDictionaryInjected;
 
         }
 

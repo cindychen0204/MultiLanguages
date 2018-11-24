@@ -16,7 +16,7 @@ namespace MultiLanguageTK
         /// </summary>
         void Awake()
         {
-            var Loadable = (ILoadable) MutliLanguageManager.GetInstance();
+            var Loadable = (ILoadable) MutliLanguageManager.Instance;
 
             EventInjector eventInjector = this.GetComponent<EventInjector>();
 

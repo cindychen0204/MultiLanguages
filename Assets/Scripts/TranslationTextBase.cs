@@ -5,7 +5,7 @@ namespace MultiLanguageTK
 {
     public abstract class TranslationTextBase : MonoBehaviour
     {
-        protected ILoadable Loadable = MutliLanguageManager.GetInstance();
+        protected ILoadable Loadable = MutliLanguageManager.Instance;
 
         //public abstract void Replace();
 

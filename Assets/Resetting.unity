@@ -197,6 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352a6f81aced8464db6095b384baf837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceLanguage: 0
+  TargetLanguage: 0
+  AutoDetectLanguage: 0
+  textmesh: {fileID: 66673338}
 --- !u!4 &66673341
 Transform:
   m_ObjectHideFlags: 0
@@ -366,7 +370,6 @@ GameObject:
   - component: {fileID: 877298304}
   - component: {fileID: 877298303}
   - component: {fileID: 877298302}
-  - component: {fileID: 877298305}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -442,21 +445,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &877298305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 877298301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f584ba94e57a0aa42959dee3f67dee88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResourceLanguage: 0
-  TargetLanguage: 1
-  AutoDetectLanguage: 1
-  textmesh: {fileID: 877298302}
 --- !u!1 &1452303880
 GameObject:
   m_ObjectHideFlags: 0

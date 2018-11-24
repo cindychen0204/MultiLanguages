@@ -17,7 +17,7 @@ namespace MultiLanguageTK
     /// <summary>
     /// Implement singleton
     /// </summary>
-    public sealed class MutliLanguageManager : SingletonMonoBehaviour<MutliLanguageManager>, ILoadable
+    public sealed class MutliLanguageManager : MonoBehaviour, ILoadable
     {
 
         /// <summary>
@@ -25,8 +25,6 @@ namespace MultiLanguageTK
         /// </summary>
         [SerializeField] private Translation _translation;
 
-
-        
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
@@ -43,17 +41,37 @@ namespace MultiLanguageTK
         /// <summary>
         /// Singleton implement
         /// </summary>
+        static MutliLanguageManager _instance;
 
 
-        protected override void Init()
+        public static MutliLanguageManager Instance
         {
-            base.Init();
+            get
+            {
+                if (_instance == null)
+                {
+                    var previous = FindObjectOfType(typeof(MutliLanguageManager));
+                    if (previous)
+                    {
+                        Debug.LogWarning("Initialized twice. Don't use MidiBridge in the scene hierarchy.");
+                        _instance = (MutliLanguageManager)previous;
+                    }
+                    else
+                    {
+                        var go = new GameObject("__MidiBridge");
+                        _instance = go.AddComponent<MutliLanguageManager>();
+                        DontDestroyOnLoad(go);
+                        go.hideFlags = HideFlags.HideInHierarchy;
+                    }
+                }
+                return _instance;
+            }
         }
 
         /// <summary>
-            /// Detection for subscribers
-            /// </summary>
-            public void OngoogleSheetDictionaryInjected()
+        /// Detection for subscribers
+        /// </summary>
+        public void OngoogleSheetDictionaryInjected()
         {
             if (googleSheetDictionaryInjected != null)
             {
@@ -62,8 +80,6 @@ namespace MultiLanguageTK
 
         }
 
-
-        EventInjector EIJ = new EventInjector();
         void Start()
         {
 
@@ -73,10 +89,6 @@ namespace MultiLanguageTK
 
             //TranslationResults(Languages.En, Languages.Ja, "hello")
             //string x = TranslationResults(Languages.En, Languages.Ja, "hello");\
-
-           
-            googleSheetDictionaryInjected += EIJ.MLM_OngoogleSheetDictionaryInjected;
-
         }
 
 

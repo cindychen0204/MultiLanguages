@@ -4,7 +4,6 @@
 
 namespace MultiLanguageTK
 {
-    public delegate void GoogleSheetInjectedEventHandler(object source, EventArgs args);
 
     public interface ILoadable
     {
@@ -16,8 +15,8 @@ namespace MultiLanguageTK
         /// <param name="input"></param>
         /// <returns></returns>
         string TranslationResults(Languages resource, Languages target, string input);
-        
-        event GoogleSheetInjectedEventHandler googleSheetDictionaryInjected;
+
+        event EventHandler googleSheetDictionaryInjected;
 
 
     }

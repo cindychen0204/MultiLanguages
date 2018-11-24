@@ -1,8 +1,8 @@
 ﻿namespace MultiLanguageTK
 {
-    public class DictionaryKey
+    public class TranslationKey
     {
-        public DictionaryKey(Languages resource, Languages target, string input)
+        public TranslationKey(Languages resource, Languages target, string input)
         {
             this.resource = resource;
             this.target = target;

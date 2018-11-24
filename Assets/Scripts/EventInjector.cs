@@ -8,19 +8,26 @@ namespace MultiLanguageTK
     /// </summary>
     public class EventInjector : MonoBehaviour
     {
-        void Awake()
+        [SerializeField] private static TextMesh textmesh;
+
+        public EventInjector(MutliLanguageManager MLM)
         {
-            ILoadable Loadable = MutliLanguageManager.GetInstance();
+            var Loadable = (ILoadable)MLM;
 
-            Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;           
-
+            Loadable.googleSheetDictionaryInjected += MLM_OngoogleSheetDictionaryInjected;
         }
 
-        public void OngoogleSheetDictionaryInjected(object source, EventArgs e)
-        {
-            string transResults = "EventInjectorLooksGreat!";
 
-            Debug.Log(transResults);
+        public void MLM_OngoogleSheetDictionaryInjected(object source, EventArgs e)
+        {
+            Debug.Log("Translation Results:");
+
+            string transResults = "Event Completed";
+
+            textmesh.text = transResults;
+
+            Debug.Log("Translation Results:" + transResults);
+
         }
     }
 } //namespace

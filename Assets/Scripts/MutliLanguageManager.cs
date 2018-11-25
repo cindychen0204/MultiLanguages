@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -14,6 +15,18 @@ namespace MultiLanguageTK
         Zhtw
     };
 
+    public class TranslationKey
+    {
+        public TranslationKey(Languages resource, Languages target, string input)
+        {
+            this.resource = resource;
+            this.target = target;
+            this.input = input;
+        }
+        public Languages resource;
+        public Languages target;
+        public string input;
+    }
     /// <summary>
     /// Implement singleton
     /// </summary>
@@ -25,24 +38,21 @@ namespace MultiLanguageTK
         /// </summary>
         [SerializeField] private Translation _translation;
 
-
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
         /// Tuple<元言語、ターゲット言語、翻訳したい内容>, Dictionary のValueは翻訳結果
         /// </summary>
-        private static Dictionary<TranslationKey, string> _languageDict = new Dictionary<TranslationKey, string>();
+        private static  Dictionary<TranslationKey, string> languageDict;
 
         /// <summary>
         /// Create an event
         /// </summary>
         public event EventHandler googleSheetDictionaryInjected;
-
-
+        
         /// <summary>
         /// Singleton implement
         /// </summary>
-        static MutliLanguageManager _instance;
-
+        private static MutliLanguageManager _instance;
 
         public static MutliLanguageManager Instance
         {
@@ -80,15 +90,30 @@ namespace MultiLanguageTK
 
         }
 
-        void Start()
+        void Awake()
+        {
+            googleSheetDictionaryInjected += TestingTranslationResult;
+            GoogleSheetLoader();
+        }
+
+        void TestingTranslationResult(object source, EventArgs e)
+        {
+            string transResults = null;
+            
+            transResults = TranslationResults(Languages.En, Languages.Ja, "Hello");
+            //transResults = Loadable.Hello(outputText);
+            Debug.Log(transResults);
+
+        }
+
+        void Update()
         {
 
-            GoogleSheetLoader();
+            string transResults = null;
+            transResults = TranslationResults(Languages.En, Languages.Ja, "Hello");
+            //transResults = Loadable.Hello(outputText);
+            Debug.Log("Updating..." + transResults);
 
-            //Debug.Log(_translation);
-
-            //TranslationResults(Languages.En, Languages.Ja, "hello")
-            //string x = TranslationResults(Languages.En, Languages.Ja, "hello");\
         }
 
 
@@ -100,17 +125,19 @@ namespace MultiLanguageTK
         /// <summary>
         /// Importing data from GoogleSheet
         /// </summary>
-        public void GoogleSheetLoader()
+        private void GoogleSheetLoader()
         {
-            _languageDict.Clear();
+            languageDict = new Dictionary<TranslationKey, string>();
+
+            languageDict.Clear();
 
             var languageArray = _translation.dataArray;
 
+
+            foreach(var T in languageArray) {
             //Collecting GoogleSheet into dictionary
-            Parallel.For(0, languageArray.Length, i =>
-            {
+
                 //Debug.Log(T.En[0]);
-                var T = languageArray[i];
                 // En -> ??
                 AddSafe(new TranslationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
 
@@ -142,7 +169,7 @@ namespace MultiLanguageTK
 
                 AddSafe(new TranslationKey(Languages.Zhtw, Languages.Zhcn, T.Zhtw[0]), T.Zhcn[0]);
 
-            });
+            }
 
             OngoogleSheetDictionaryInjected();
 
@@ -159,16 +186,22 @@ namespace MultiLanguageTK
         /// <returns></returns>
         public string TranslationResults(Languages resource, Languages target, string input)
         {
-            input.ToLower();
+            input = input.ToLower();//For english
+            var key = new TranslationKey(resource, target, input);
+            
 
             string value = null;
 
-            if (_languageDict.TryGetValue(new TranslationKey(resource, target, input), out value))
+            if (languageDict.TryGetValue(key, out value))
             {
-                Debug.Log("Finding result...." + new TranslationKey(resource, target, input));
+                //Debug.Log("Finding result...." + new TranslationKey(resource, target, input));
                 return value;
                 
             }
+
+            ///Testing------------------
+            Debug.Log("!!!!" + languageDict[key]); //Null
+            ///Testing------------------
 
             return value;
 
@@ -179,17 +212,27 @@ namespace MultiLanguageTK
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public static void AddSafe(TranslationKey key, string value)
+        private void AddSafe(TranslationKey key, string value)
         {
             string notuse = null;
-            if (_languageDict.TryGetValue(key, out notuse))
-            {
+            if (languageDict.TryGetValue(key, out notuse))
+            {   
                 return;
             }
+            //Debug.Log("Key : " + key + "value : " + value);
 
-            //Debug.Log("Key : "+ key +  "value : "+ value);
+            languageDict.Add(key, value);
 
-            _languageDict.Add(key,value);
+
+
+            ///Testing------------------
+
+
+            Debug.Log("????" + languageDict[key]); //Value OK
+            ///Testing------------------
+           
+
+            
         }
     } //class
 } //namespace

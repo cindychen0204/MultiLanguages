@@ -186,7 +186,7 @@ namespace MultiLanguageTK
         /// <returns></returns>
         public string TranslationResults(Languages resource, Languages target, string input)
         {
-            input = input.ToLower();//For english
+            input => input.ToLower();//For english
             var key = new TranslationKey(resource, target, input);
             
 
@@ -228,7 +228,7 @@ namespace MultiLanguageTK
             ///Testing------------------
 
 
-            Debug.Log("????" + languageDict[key]); //Value OK
+            //Debug.Log("????" + languageDict[key]); //Value OK
             ///Testing------------------
            
 

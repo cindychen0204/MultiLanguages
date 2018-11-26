@@ -39,6 +39,12 @@ namespace MultiLanguageTK
         [SerializeField] private Translation _translation;
 
         /// <summary>
+        /// Instantiate TranslationKey
+        /// </summary>
+        private TranslationKey translationKey(Languages resource, Languages target, string input) => new TranslationKey(Languages.En, Languages.En, "");
+
+
+        /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
         /// Tuple<元言語、ターゲット言語、翻訳したい内容>, Dictionary のValueは翻訳結果
         /// </summary>
@@ -94,6 +100,7 @@ namespace MultiLanguageTK
         {
             googleSheetDictionaryInjected += TestingTranslationResult;
             GoogleSheetLoader();
+           
         }
 
         void TestingTranslationResult(object source, EventArgs e)
@@ -103,16 +110,6 @@ namespace MultiLanguageTK
             transResults = TranslationResults(Languages.En, Languages.Ja, "Hello");
             //transResults = Loadable.Hello(outputText);
             Debug.Log(transResults);
-
-        }
-
-        void Update()
-        {
-
-            string transResults = null;
-            transResults = TranslationResults(Languages.En, Languages.Ja, "Hello");
-            //transResults = Loadable.Hello(outputText);
-            Debug.Log("Updating..." + transResults);
 
         }
 
@@ -139,6 +136,9 @@ namespace MultiLanguageTK
 
                 //Debug.Log(T.En[0]);
                 // En -> ??
+
+                AddSafe(translationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
+
                 AddSafe(new TranslationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
 
                 AddSafe(new TranslationKey(Languages.En, Languages.Zhcn, T.En[0].ToLower()), T.Zhcn[0]);
@@ -187,8 +187,10 @@ namespace MultiLanguageTK
         public string TranslationResults(Languages resource, Languages target, string input)
         {
             input = input.ToLower();//For english
-            var key = new TranslationKey(resource, target, input);
-            
+            var key = translationKey(resource, target, input);
+
+            Debug.Log("!!!!" + resource + target + input);
+
 
             string value = null;
 
@@ -200,7 +202,15 @@ namespace MultiLanguageTK
             }
 
             ///Testing------------------
+            ///
+            Debug.Log("!!!!"  + key);
             Debug.Log("!!!!" + languageDict[key]); //Null
+
+
+
+
+
+
             ///Testing------------------
 
             return value;
@@ -228,7 +238,7 @@ namespace MultiLanguageTK
             ///Testing------------------
 
 
-            Debug.Log("????" + languageDict[key]);// Value Ok
+            //Debug.Log("????" + languageDict[key]);// Value Ok
             ///Testing------------------
            
 

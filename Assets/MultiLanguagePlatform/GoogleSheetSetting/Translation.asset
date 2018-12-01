@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00bc1be67758fc4b92d98cebc069307, type: 3}
+  m_Name: Translation
+  m_EditorClassIdentifier: 
+  SheetName: Holo_MultiLanguages
+  WorksheetName: Translation
+  dataArray:
+  - key:
+    - key
+    en:
+    - en
+    ja:
+    - ja
+    zhcn:
+    - zh-CN
+    zhtw:
+    - zh-TW
+    sourcelanguage: Source-language
+    translationresources: 
+  - key:
+    - yes
+    en:
+    - yes
+    ja:
+    - "\u306F\u3044"
+    zhcn:
+    - "\u662F"
+    zhtw:
+    - "\u662F"
+    sourcelanguage: en
+    translationresources: yes
+  - key:
+    - no
+    en:
+    - no
+    ja:
+    - "\u3044\u3044\u3048"
+    zhcn:
+    - "\u6CA1\u6709"
+    zhtw:
+    - "\u6C92\u6709"
+    sourcelanguage: en
+    translationresources: no
+  - key:
+    - hello
+    en:
+    - hello
+    ja:
+    - "\u3053\u3093\u306B\u3061\u306F"
+    zhcn:
+    - "\u4F60\u597D"
+    zhtw:
+    - "\u4F60\u597D"
+    sourcelanguage: en
+    translationresources: hello
+  - key:
+    - ok
+    en:
+    - ok
+    ja:
+    - OK
+    zhcn:
+    - "\u597D"
+    zhtw:
+    - "\u597D"
+    sourcelanguage: en
+    translationresources: ok
+  - key:
+    - wait
+    en:
+    - wait
+    ja:
+    - "\u5F85\u3064"
+    zhcn:
+    - "\u7B49\u5F85"
+    zhtw:
+    - "\u7B49\u5F85"
+    sourcelanguage: en
+    translationresources: wait
+  - key:
+    - settings
+    en:
+    - settings
+    ja:
+    - "\u8A2D\u5B9A"
+    zhcn:
+    - "\u8BBE\u7F6E"
+    zhtw:
+    - "\u8A2D\u7F6E"
+    sourcelanguage: en
+    translationresources: settings
+  - key:
+    - easy
+    en:
+    - EASY
+    ja:
+    - EASY
+    zhcn:
+    - "\u7B80\u5355"
+    zhtw:
+    - "\u7C21\u55AE"
+    sourcelanguage: en
+    translationresources: easy
+  - key:
+    - hard
+    en:
+    - HARD
+    ja:
+    - HARD
+    zhcn:
+    - "\u786C"
+    zhtw:
+    - "\u786C"
+    sourcelanguage: en
+    translationresources: hard
+  - key:
+    - stage
+    en:
+    - stage
+    ja:
+    - "\u30B9\u30C6\u30FC\u30B8"
+    zhcn:
+    - "\u9636\u6BB5"
+    zhtw:
+    - "\u968E\u6BB5"
+    sourcelanguage: en
+    translationresources: stage
+  - key:
+    - hello
+    en:
+    - hello
+    ja:
+    - "\u3053\u3093\u306B\u3061\u306F"
+    zhcn:
+    - "\u4F60\u597D"
+    zhtw:
+    - "\u4F60\u597D"
+    sourcelanguage: en
+    translationresources: hello
+  - key:
+    - done
+    en:
+    - done
+    ja:
+    - "\u5B8C\u4E86"
+    zhcn:
+    - DONE
+    zhtw:
+    - DONE
+    sourcelanguage: en
+    translationresources: done
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - remove
+    en:
+    - remove
+    ja:
+    - "\u524A\u9664"
+    zhcn:
+    - "\u53BB\u6389"
+    zhtw:
+    - "\u53BB\u6389"
+    sourcelanguage: en
+    translationresources: remove
+  - key:
+    - showmenu
+    en:
+    - showmenu
+    ja:
+    - "\u30E1\u30CB\u30E5\u30FC\u8868\u793A"
+    zhcn:
+    - "\u663E\u793A\u83DC\u5355"
+    zhtw:
+    - "\u986F\u793A\u83DC\u55AE"
+    sourcelanguage: en
+    translationresources: show menu
+  - key:
+    - hidemenu
+    en:
+    - hidemenu
+    ja:
+    - "\u30E1\u30CB\u30E5\u30FC\u975E\u8868\u793A"
+    zhcn:
+    - "\u9690\u85CF\u83DC\u5355"
+    zhtw:
+    - "\u96B1\u85CF\u83DC\u55AE"
+    sourcelanguage: en
+    translationresources: hide menu
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - adjust
+    en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+    sourcelanguage: en
+    translationresources: adjust
+  - key:
+    - final
+    en:
+    - final
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u6700\u540E"
+    zhtw:
+    - "\u6700\u5F8C"
+    sourcelanguage: en
+    translationresources: final

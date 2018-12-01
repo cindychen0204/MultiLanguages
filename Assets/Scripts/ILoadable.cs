@@ -1,7 +1,5 @@
 ﻿using System;
 
-
-
 namespace MultiLanguageTK
 {
 
@@ -17,8 +15,6 @@ namespace MultiLanguageTK
         string TranslationResults(Languages resource, Languages target, string input);
 
         event EventHandler googleSheetDictionaryInjected;
-
-        string Hello(string input);
 
 
     }

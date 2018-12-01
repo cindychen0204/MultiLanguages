@@ -5,100 +5,70 @@ namespace MultiLanguageTK
 {
     public class TextMeshReplacer : TranslationTextBase
     {
-    //    [SerializeField] private TextMesh textmesh;
+        [SerializeField] private TextMesh textmesh;
 
-    //    ILoadable Loadable = MutliLanguageManager.GetInstance();
+        private ILoadable Loadable;
 
 
-    //    /// <summary>
-    //    /// Memo: Implemented before Start() method in MultiLanguageManger.cs
-    //    /// </summary>
-    //    void Awake()
-    //    {
-          
-    //        Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
 
-    //    }
+        /// <summary>
+        /// Memo: Implemented before Start() method in MultiLanguageManger.cs
+        /// </summary>
+        void Main()
+        {
+            Loadable = (ILoadable)MutliLanguageManager.Instance;
 
-    //    void Update()
-    //    {
-    //        //Debug.Log(Loadable.TranslationResults(ResourceLanguage.ToString(), TargetLanguage.ToString(), textmesh.text));
-    //    }
+            Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
+        }
+
+
 
         public override void OngoogleSheetDictionaryInjected(object source, EventArgs e)
         {
-        //    Debug.Log("Translation Results:");
-
-        //    string transResults = null;
-
-        //    if (AutoDetectLanguage)
-        //    {
-        //        DetectEnviromentalLanguage();
-        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
-        //    }
-        //    else
-        //    {
-        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
-        //    }
-
-        //    textmesh.text = transResults;
 
 
+            string transResults = null;
 
-        //    Debug.Log("Translation Results:" + transResults);
+            if (AutoDetectLanguage)
+            {
+                DetectEnviromentalLanguage();
+                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
+            }
+            else
+            {
+                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
+            }
 
-        //    //Debug.Log(e);
+            if (transResults != null)
+            {
+                textmesh.text = transResults;
+            }
+
         }
 
-        //public override void Replace()
-        //{
-        //    string transResults = null;
-        //    //結果ディクショナリーのインプットを待つ
-            
+        public override void DetectEnviromentalLanguage()
+        {
+            if (Application.systemLanguage == SystemLanguage.English)
+            {
+                TargetLanguage = Languages.En;
+            }
 
-        //    if (AutoDetectLanguage)
-        //    {
-        //        DetectEnviromentalLanguage();
-        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
-        //    }
-        //    else
-        //    {
-        //        transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, textmesh.text);
-        //    }
+            else if (Application.systemLanguage == SystemLanguage.Japanese)
+            {
+                TargetLanguage = Languages.Ja;
 
-        //    textmesh.text = transResults;
+            }
+            else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
+            {
 
-        //    Debug.Log(transResults);
-        //}
+                TargetLanguage = Languages.Zhcn;
 
-        //void DetectEnviromentalLanguage()
-        //{
-        //    if (Application.systemLanguage == SystemLanguage.English)
-        //    {
-        //        TargetLanguage = Languages.En;
-        //    }
+            }
+            else if (Application.systemLanguage == SystemLanguage.ChineseTraditional)
+            {
+                TargetLanguage = Languages.Zhtw;
 
-        //    else if (Application.systemLanguage == SystemLanguage.Japanese)
-        //    {
-        //        TargetLanguage = Languages.Ja;
-
-        //    }
-        //    else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
-        //    {
-
-        //        TargetLanguage = Languages.Zhcn;
-
-        //    }
-        //    else if (Application.systemLanguage == SystemLanguage.ChineseTraditional)
-        //    {
-        //        TargetLanguage = Languages.Zhtw;
-
-        //    }
-        //}
-
-        //public override void Replace()
-        //{
-        //    throw new NotImplementedException();
-        //}
+            }
+        }
     }
 }

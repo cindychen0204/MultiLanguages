@@ -9,8 +9,8 @@ using System.Collections;
 public class TranslationData
 {
   [SerializeField]
-  string[] key = new string[0];
-  public string[] Key { get {return key; } set { key = value;} }
+  string key;
+  public string Key { get {return key; } set { key = value;} }
   
   [SerializeField]
   string[] en = new string[0];

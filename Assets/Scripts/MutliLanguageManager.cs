@@ -38,17 +38,18 @@ namespace MultiLanguageTK
         /// </summary>
         [SerializeField] private Translation _translation;
 
+
         /// <summary>
         /// Instantiate TranslationKey
         /// </summary>
-        private TranslationKey translationKey(Languages resource, Languages target, string input) => new TranslationKey(Languages.En, Languages.En, "");
+        private static TranslationKey TranslationKey(Languages resource, Languages target, string input) => new TranslationKey(Languages.En,Languages.En,"");
 
 
         /// <summary>
         /// ディクショナリー、タプルは翻訳のキー
         /// Tuple<元言語、ターゲット言語、翻訳したい内容>, Dictionary のValueは翻訳結果
         /// </summary>
-        private static  Dictionary<TranslationKey, string> languageDict;
+        private static Dictionary<TranslationKey, string> languageDict =  new Dictionary<TranslationKey, string>();
 
         /// <summary>
         /// Create an event
@@ -107,7 +108,7 @@ namespace MultiLanguageTK
         {
             string transResults = null;
             
-            transResults = TranslationResults(Languages.En, Languages.Ja, "Hello");
+            transResults = TranslationResults(Languages.En, Languages.En, "sadsads");
             //transResults = Loadable.Hello(outputText);
             Debug.Log(transResults);
 
@@ -124,50 +125,49 @@ namespace MultiLanguageTK
         /// </summary>
         private void GoogleSheetLoader()
         {
-            languageDict = new Dictionary<TranslationKey, string>();
-
+           
             languageDict.Clear();
 
             var languageArray = _translation.dataArray;
 
 
             foreach(var T in languageArray) {
-            //Collecting GoogleSheet into dictionary
+                //Collecting GoogleSheet into dictionary
 
                 //Debug.Log(T.En[0]);
                 // En -> ??
 
-                AddSafe(translationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
+                AddSafe(TranslationKey(Languages.En, Languages.En, ""), "Testing...Looks great!");
 
-                AddSafe(new TranslationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
+                AddSafe(TranslationKey(Languages.En, Languages.Ja, T.En[0].ToLower()), T.Ja[0]);
 
-                AddSafe(new TranslationKey(Languages.En, Languages.Zhcn, T.En[0].ToLower()), T.Zhcn[0]);
+                AddSafe(TranslationKey(Languages.En, Languages.Zhcn, T.En[0].ToLower()), T.Zhcn[0]);
 
-                AddSafe(new TranslationKey(Languages.En, Languages.Zhtw, T.En[0].ToLower()), T.Zhtw[0]);
+                AddSafe(TranslationKey(Languages.En, Languages.Zhtw, T.En[0].ToLower()), T.Zhtw[0]);
 
 
                 //Ja - > ??
-                AddSafe(new TranslationKey(Languages.Ja, Languages.En, T.Ja[0]), T.En[0]);
+                AddSafe(TranslationKey(Languages.Ja, Languages.En, T.Ja[0]), T.En[0]);
 
-                AddSafe(new TranslationKey(Languages.Ja, Languages.Zhcn, T.Ja[0]), T.Zhcn[0]);
+                AddSafe(TranslationKey(Languages.Ja, Languages.Zhcn, T.Ja[0]), T.Zhcn[0]);
 
-                AddSafe(new TranslationKey(Languages.Ja, Languages.Zhtw, T.Ja[0]), T.Zhtw[0]);
+                AddSafe(TranslationKey(Languages.Ja, Languages.Zhtw, T.Ja[0]), T.Zhtw[0]);
 
 
                 //Zhcn -> ??
-                AddSafe(new TranslationKey(Languages.Zhcn, Languages.En, T.Zhcn[0]), T.En[0]);
+                AddSafe(TranslationKey(Languages.Zhcn, Languages.En, T.Zhcn[0]), T.En[0]);
 
-                AddSafe(new TranslationKey(Languages.Zhcn, Languages.Ja, T.Zhcn[0]), T.Ja[0]);
+                AddSafe(TranslationKey(Languages.Zhcn, Languages.Ja, T.Zhcn[0]), T.Ja[0]);
 
-                AddSafe(new TranslationKey(Languages.Zhcn, Languages.Zhtw, T.Zhcn[0]), T.Zhtw[0]);
+                AddSafe(TranslationKey(Languages.Zhcn, Languages.Zhtw, T.Zhcn[0]), T.Zhtw[0]);
 
 
                 //Zhtw -> ??
-                AddSafe(new TranslationKey(Languages.Zhtw, Languages.En, T.Zhtw[0]), T.En[0]);
+                AddSafe(TranslationKey(Languages.Zhtw, Languages.En, T.Zhtw[0]), T.En[0]);
 
-                AddSafe(new TranslationKey(Languages.Zhtw, Languages.Ja, T.Zhtw[0]), T.Ja[0]);
+                AddSafe(TranslationKey(Languages.Zhtw, Languages.Ja, T.Zhtw[0]), T.Ja[0]);
 
-                AddSafe(new TranslationKey(Languages.Zhtw, Languages.Zhcn, T.Zhtw[0]), T.Zhcn[0]);
+                AddSafe(TranslationKey(Languages.Zhtw, Languages.Zhcn, T.Zhtw[0]), T.Zhcn[0]);
 
             }
 
@@ -187,14 +187,14 @@ namespace MultiLanguageTK
         public string TranslationResults(Languages resource, Languages target, string input)
         {
             input = input.ToLower();//For english
-            var key = translationKey(resource, target, input);
+            //var key = translationKey(resource, target, input);
 
             Debug.Log("!!!!" + resource + target + input);
 
 
             string value = null;
 
-            if (languageDict.TryGetValue(key, out value))
+            if (languageDict.TryGetValue(TranslationKey(resource, target, input), out value))
             {
                 //Debug.Log("Finding result...." + new TranslationKey(resource, target, input));
                 return value;
@@ -203,13 +203,14 @@ namespace MultiLanguageTK
 
             ///Testing------------------
             ///
-            Debug.Log("!!!!"  + key);
-            Debug.Log("!!!!" + languageDict[key]); //Null
+            //Debug.Log("!!!!"  + key);
+            //Debug.Log("!!!!" + languageDict[key]); //Null
 
 
 
 
-
+            var key = TranslationKey(resource, target, input);
+            Debug.Log(key);
 
             ///Testing------------------
 

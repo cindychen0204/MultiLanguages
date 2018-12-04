@@ -18,31 +18,23 @@ MonoBehaviour:
   workSheetName: Translation
   columnHeaderList:
   - type: 0
-    name: key
+    name: TranslationResource
     isEnable: 0
     isArray: 0
-  - type: 0
+  - type: 1
     name: en
     isEnable: 0
-    isArray: 1
-  - type: 0
+    isArray: 0
+  - type: 1
     name: ja
     isEnable: 0
-    isArray: 1
-  - type: 0
+    isArray: 0
+  - type: 1
     name: zhcn
     isEnable: 0
-    isArray: 1
-  - type: 0
-    name: zhtw
-    isEnable: 0
-    isArray: 1
-  - type: 0
-    name: Sourcelanguage
-    isEnable: 0
     isArray: 0
-  - type: 0
-    name: TranslationResources
+  - type: 1
+    name: zhtw
     isEnable: 0
     isArray: 0
   AccessCode: 

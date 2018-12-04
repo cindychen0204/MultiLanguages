@@ -5,7 +5,7 @@ namespace MultiLanguageTK
 {
     public abstract class TranslationTextBase : MonoBehaviour
     {
-        protected ILoadable Loadable;
+        protected ITranslator Translator;
 
         [SerializeField] protected Languages ResourceLanguage;
 

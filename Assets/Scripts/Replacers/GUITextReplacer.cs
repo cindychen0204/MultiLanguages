@@ -8,7 +8,7 @@ namespace MultiLanguageTK
         [SerializeField] private GUIText GUItext;
 
 
-        private ILoadable Loadable;
+        private ITranslator _translator;
 
 
 
@@ -17,9 +17,9 @@ namespace MultiLanguageTK
         /// </summary>
         void Main()
         {
-            Loadable = (ILoadable)MutliLanguageManager.Instance;
+            _translator = (ITranslator)GoogleSheetLoader.Instance;
 
-            Loadable.googleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
+            _translator.GoogleSheetDictionaryInjected += OngoogleSheetDictionaryInjected;
         }
 
 
@@ -33,11 +33,11 @@ namespace MultiLanguageTK
             if (AutoDetectLanguage)
             {
                 DetectEnviromentalLanguage();
-                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, GUItext.text);
+                transResults = _translator.TranslateResults(ResourceLanguage, TargetLanguage, GUItext.text);
             }
             else
             {
-                transResults = Loadable.TranslationResults(ResourceLanguage, TargetLanguage, GUItext.text);
+                transResults = _translator.TranslateResults(ResourceLanguage, TargetLanguage, GUItext.text);
             }
 
             if (transResults != null)
@@ -53,23 +53,23 @@ namespace MultiLanguageTK
         {
             if (Application.systemLanguage == SystemLanguage.English)
             {
-                TargetLanguage = Languages.En;
+                TargetLanguage = Languages.English;
             }
 
             else if (Application.systemLanguage == SystemLanguage.Japanese)
             {
-                TargetLanguage = Languages.Ja;
+                TargetLanguage = Languages.Japanese;
 
             }
             else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
             {
 
-                TargetLanguage = Languages.Zhcn;
+                TargetLanguage = Languages.ChineseSimplified;
 
             }
             else if (Application.systemLanguage == SystemLanguage.ChineseTraditional)
             {
-                TargetLanguage = Languages.Zhtw;
+                TargetLanguage = Languages.ChineseTraditional;
 
             }
         }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Import Setting
   m_EditorClassIdentifier: 
   templatePath: MultiLanguagePlatform/QuickSheet/GDataPlugin/Templates
-  scriptFilePath: Scripts/Runtime
-  editorScriptFilePath: Scripts/Editor
+  scriptFilePath: MultiLanguagePlatform/Scripts/Runtime
+  editorScriptFilePath: MultiLanguagePlatform/Scripts/Editor
   sheetName: Holo_MultiLanguages
   workSheetName: Translation
   columnHeaderList:

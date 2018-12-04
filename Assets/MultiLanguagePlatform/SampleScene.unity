@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 0
   TargetLanguage: 0
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   UItext: {fileID: 595444428}
 --- !u!23 &595444431
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 0
   TargetLanguage: 0
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   GUItext: {fileID: 647666472}
 --- !u!222 &647666474
@@ -539,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 0
   TargetLanguage: 1
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   textmesh: {fileID: 1002029841}
 --- !u!102 &1002029841
@@ -640,6 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 1
   TargetLanguage: 2
+  TranslateResoruce: 0
   AutoDetectLanguage: 0
   textmesh: {fileID: 1058546892}
 --- !u!102 &1058546892
@@ -741,6 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 3
   TargetLanguage: 0
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   textmesh: {fileID: 1133695623}
 --- !u!102 &1133695623
@@ -842,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 3
   TargetLanguage: 2
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   textmesh: {fileID: 1139129213}
 --- !u!102 &1139129213
@@ -921,6 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452303882}
   - component: {fileID: 1452303881}
+  - component: {fileID: 1452303883}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -953,6 +960,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452303883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452303880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e4fb83767a2ec4383faaf8e64e2e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CSVFileName: StringTable.csv
 --- !u!1001 &1543087750
 Prefab:
   m_ObjectHideFlags: 0
@@ -1031,6 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceLanguage: 0
   TargetLanguage: 2
+  TranslateResoruce: 0
   AutoDetectLanguage: 1
   textmesh: {fileID: 1877884667}
 --- !u!102 &1877884667

@@ -14,8 +14,7 @@ MonoBehaviour:
   SheetName: Holo_MultiLanguages
   WorksheetName: Translation
   dataArray:
-  - key:
-    - key
+  - key: key
     en:
     - en
     ja:
@@ -26,8 +25,7 @@ MonoBehaviour:
     - zh-TW
     sourcelanguage: Source-language
     translationresources: 
-  - key:
-    - yes
+  - key: yes
     en:
     - yes
     ja:
@@ -38,8 +36,7 @@ MonoBehaviour:
     - "\u662F"
     sourcelanguage: en
     translationresources: yes
-  - key:
-    - no
+  - key: no
     en:
     - no
     ja:
@@ -50,8 +47,7 @@ MonoBehaviour:
     - "\u6C92\u6709"
     sourcelanguage: en
     translationresources: no
-  - key:
-    - hello
+  - key: hello
     en:
     - hello
     ja:
@@ -62,8 +58,7 @@ MonoBehaviour:
     - "\u4F60\u597D"
     sourcelanguage: en
     translationresources: hello
-  - key:
-    - ok
+  - key: ok
     en:
     - ok
     ja:
@@ -74,8 +69,7 @@ MonoBehaviour:
     - "\u597D"
     sourcelanguage: en
     translationresources: ok
-  - key:
-    - wait
+  - key: wait
     en:
     - wait
     ja:
@@ -86,8 +80,7 @@ MonoBehaviour:
     - "\u7B49\u5F85"
     sourcelanguage: en
     translationresources: wait
-  - key:
-    - settings
+  - key: settings
     en:
     - settings
     ja:
@@ -98,8 +91,7 @@ MonoBehaviour:
     - "\u8A2D\u7F6E"
     sourcelanguage: en
     translationresources: settings
-  - key:
-    - easy
+  - key: easy
     en:
     - EASY
     ja:
@@ -110,8 +102,7 @@ MonoBehaviour:
     - "\u7C21\u55AE"
     sourcelanguage: en
     translationresources: easy
-  - key:
-    - hard
+  - key: hard
     en:
     - HARD
     ja:
@@ -122,8 +113,7 @@ MonoBehaviour:
     - "\u786C"
     sourcelanguage: en
     translationresources: hard
-  - key:
-    - stage
+  - key: stage
     en:
     - stage
     ja:
@@ -134,8 +124,7 @@ MonoBehaviour:
     - "\u968E\u6BB5"
     sourcelanguage: en
     translationresources: stage
-  - key:
-    - hello
+  - key: hello
     en:
     - hello
     ja:
@@ -146,8 +135,7 @@ MonoBehaviour:
     - "\u4F60\u597D"
     sourcelanguage: en
     translationresources: hello
-  - key:
-    - done
+  - key: done
     en:
     - done
     ja:
@@ -158,8 +146,7 @@ MonoBehaviour:
     - DONE
     sourcelanguage: en
     translationresources: done
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -170,8 +157,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - remove
+  - key: remove
     en:
     - remove
     ja:
@@ -182,8 +168,7 @@ MonoBehaviour:
     - "\u53BB\u6389"
     sourcelanguage: en
     translationresources: remove
-  - key:
-    - showmenu
+  - key: show menu
     en:
     - showmenu
     ja:
@@ -194,8 +179,7 @@ MonoBehaviour:
     - "\u986F\u793A\u83DC\u55AE"
     sourcelanguage: en
     translationresources: show menu
-  - key:
-    - hidemenu
+  - key: hide menu
     en:
     - hidemenu
     ja:
@@ -206,8 +190,7 @@ MonoBehaviour:
     - "\u96B1\u85CF\u83DC\u55AE"
     sourcelanguage: en
     translationresources: hide menu
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -218,8 +201,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -230,8 +212,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -242,8 +223,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -254,8 +234,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -266,8 +245,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -278,8 +256,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -290,8 +267,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -302,8 +278,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - adjust
+  - key: adjust
     en:
     - adjust
     ja:
@@ -314,8 +289,7 @@ MonoBehaviour:
     - "\u8ABF\u6574"
     sourcelanguage: en
     translationresources: adjust
-  - key:
-    - final
+  - key: final
     en:
     - final
     ja:

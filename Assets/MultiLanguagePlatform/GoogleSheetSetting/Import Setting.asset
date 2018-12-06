@@ -11,16 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb4931813a361148a6651be452ff88e, type: 3}
   m_Name: Import Setting
   m_EditorClassIdentifier: 
-  templatePath: QuickSheet/GDataPlugin/Templates
-  scriptFilePath: Scripts/Runtime
-  editorScriptFilePath: Scripts/Editor
+  templatePath: MultiLanguagePlatform/QuickSheet/GDataPlugin/Templates
+  scriptFilePath: MultiLanguagePlatform/Scripts/Runtime
+  editorScriptFilePath: MultiLanguagePlatform/Scripts/Editor
   sheetName: Holo_MultiLanguages
   workSheetName: Translation
   columnHeaderList:
-  - type: 1
-    name: key
+  - type: 0
+    name: TranslationResource
     isEnable: 0
-    isArray: 1
+    isArray: 0
   - type: 1
     name: en
     isEnable: 0
@@ -30,23 +30,11 @@ MonoBehaviour:
     isEnable: 0
     isArray: 1
   - type: 1
-    name: zh-CN
+    name: zhcn
     isEnable: 0
     isArray: 1
   - type: 1
-    name: zh-TW
+    name: zhtw
     isEnable: 0
     isArray: 1
-  - type: 1
-    name: Source-language
-    isEnable: 0
-    isArray: 1
-  - type: 1
-    name: TranslationResources
-    isEnable: 0
-    isArray: 0
-  - type: 0
-    name: "\u5F37\u5236\u3067\u6587\u5B57\u5217\u3092\u4EE3\u5165"
-    isEnable: 0
-    isArray: 0
   AccessCode: 

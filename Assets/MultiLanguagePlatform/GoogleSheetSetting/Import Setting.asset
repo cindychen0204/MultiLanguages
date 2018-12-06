@@ -17,7 +17,7 @@ MonoBehaviour:
   sheetName: Holo_MultiLanguages
   workSheetName: Translation
   columnHeaderList:
-  - type: 0
+  - type: 1
     name: TranslationResource
     isEnable: 0
     isArray: 0

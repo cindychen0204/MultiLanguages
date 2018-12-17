@@ -33,15 +33,15 @@ See this page for setting up credentials and getting OAuth2 'client_ID' and 'cli
 
 ## スプレッドシートを作成　/　Create a spreadsheet and worksheet
 スプレッドシートをご自身のGoogle　Driveに作成してください。
-シートの名前は以下のように「Translation」にしてください。
+WorkSheetの名前は以下のように「Translation」にしてください。
 内容は、このテンプレートをコピーし、ご自身のシートにはりつけてください。
 https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXsMgk/edit?usp=sharing
 <br><br>
 Create a google spreadsheet on your 'Google Drive' after logging in your 'Google Drive' with your account.
-Please name the sheet as "Translation". <br>
+Please name the Worksheet as "Translation". <br>
 Also, pay attention that you have to copy the EXACT sheet from this template.
 https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXsMgk/edit?usp=sharing
-![alt text](https://i.gyazo.com/d76a00b2ed50a9d6c3fa2ff171299f25.png)
+![alt text](https://i.gyazo.com/11d35db6a7cd912eaaef546ccf038732.png)
 
 
 <br>

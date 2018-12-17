@@ -46,11 +46,11 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 
 # Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
 
-* インポートの前に　/　Before importing
+<b>*</b> インポートの前に　/　Before importing <br>
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
 Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Other Settings>Scripting Runtime Version into `Experimental(.NET 4.6 Equivalent) `
-<br>
-** もしMixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
+<br> <br>
+<b>**</b> もしMixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
 検索機能を使い、Newtonsoft.JsonのInclude PlatformをEditorだけにしてください。
 Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only and apply it.
 <br>

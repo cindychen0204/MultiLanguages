@@ -76,7 +76,7 @@ namespace MultiLanguageTK
         /// </summary>
         void Start()
         {
-            Loader(CSVFileName);
+            Load(CSVFileName);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace MultiLanguageTK
         /// CSVファイルを読み込みます
         /// </summary>
         /// <param name="filenameWithExt">拡張子付きファイル名</param>
-        private void Loader(string filenameWithExt)
+        private void Load(string filenameWithExt)
         {
 
             languageDict.Clear();

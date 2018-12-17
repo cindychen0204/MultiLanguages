@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scripts/Main.unity
+    path: 
     guid: bce2b51b1b1c5d4428cb927dd2dddfeb
   - enabled: 1
-    path: Assets/Scripts/Resetting.unity
+    path: Assets/Testing/ReplacerTesting.unity
     guid: 89cb918eb50ae374084e42dd2709bead

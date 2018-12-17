@@ -58,7 +58,7 @@ Add Check `I have OAuth2 JSON file` as true, then direct the json file. <br>
 2. Now, you can see 'Client ID' and 'Client Secret' will be automatically sepcified <br>
 3. Click 'Start Authentication' button. It will launch your browser with the following image: <br>
 
-Or you could reference in this GIF:
+Or you could reference in this GIF: <br>
 ![](https://i.gyazo.com/24a0d910bf760cc88be11f83ceccea22.gif?_ga=2.165977085.271426080.1545019028-698536499.1488878597)
 
 そして、 `Update`を押してデータを取得する。<br>

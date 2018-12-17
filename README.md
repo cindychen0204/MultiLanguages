@@ -11,7 +11,7 @@ This project provives 4 languages translation platform in Unity. (English,Japane
 
 
 
-# Step1 
+# 手順1 / Procedure No.1
 言語ソースを決める <br>
 Decide your project's language data source　<br>
 
@@ -19,7 +19,7 @@ Decide your project's language data source　<br>
 ・Excel　<br>
 ・CSV　<br>
 
-# Step2 
+# 手順2 / Procedure No.2
 (GoogleSheetではない場合は省略/If not using GoogleSheet, please ignore #2)
 <br>
 まず認証から始めます。[Google Developer Console](https://console.developers.google.com/apis/dashboard?project=test20181110-1541853844271&duration=PT1H)　にアクセスし、新しいプロジェクトを作成し、
@@ -31,7 +31,7 @@ Start it with authorization. Access to [Google Developer Console](https://consol
 a new project, enable the Drive API, create a new client ID of type "service account" and download json file.
 See this page for setting up credentials and getting OAuth2 'client_ID' and 'client_secret' those are needed to set up google sreadsheet setting file. *
 
-## スプレッドシートを作成　/　Create a spreadsheet and worksheet
+## スプレッドシートを作成 / Create a spreadsheet and worksheet
 スプレッドシートをご自身のGoogle　Driveに作成してください。
 WorkSheetの名前は以下のように「Translation」にしてください。
 内容は、このテンプレートをコピーし、ご自身のシートに貼り付けててください。一致しないとうまくインポートできないのでご注意ください。
@@ -47,7 +47,7 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 <br>
 
 
-## Google Sheet setting
+## Google Sheet Setting
 Googleアカウントの設定に無事に成功すれば、 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' フォルダの下に'GoogleDataSettings.asset' の設定を行います。
 まず、ダウンロードしたJSONファイルをプロジェクトにインポートし、GoogleDataSettings.assetの`I have OAuth2 JSON file`にチェックを入れて、Jsonファイルにパスを設定してください。
 Client ID　と　Client Secretが自動判別されることを確認した後、'Start Authentication'を押し、認証を完成させてください。（GIFに参照することも可能）
@@ -68,7 +68,7 @@ Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 
 <br>
 
-# Step 3 : Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
+# 手順3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
 
 <b>*</b> インポートの前に　/　Before importing <br>
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
@@ -80,7 +80,7 @@ Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` on
 <br>
 
 
-# Step 4
+# 手順4 / Procedure No.4
 パッケージをインポートした時点でもう開発は可能となります。データを更新する場合。（CSVの場合は不要） <br>
 EXCEL:  MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.assetの <br>
 `Update`を押してください。<br>

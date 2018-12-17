@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a6f167d294cd34fa759f4c6a18c023, type: 3}
+  m_Name: TranslateExcel
+  m_EditorClassIdentifier: 
+  SheetName: Assets/MultiLanguagePlatform/Resources/Excel/TranslationExcel.xlsx
+  WorksheetName: TranslateExcel
+  dataArray:
+  - en:
+    - yes
+    ja:
+    - "\u306F\u3044"
+    zhcn:
+    - "\u662F"
+    zhtw:
+    - "\u662F"
+  - en:
+    - no
+    ja:
+    - "\u3044\u3044\u3048"
+    zhcn:
+    - "\u6CA1\u6709"
+    zhtw:
+    - "\u6C92\u6709"
+  - en:
+    - hello
+    ja:
+    - "\u3053\u3093\u306B\u3061\u306F"
+    zhcn:
+    - "\u4F60\u597D"
+    zhtw:
+    - "\u4F60\u597D"
+  - en:
+    - ok
+    ja:
+    - OK
+    zhcn:
+    - "\u597D"
+    zhtw:
+    - "\u597D"
+  - en:
+    - wait
+    ja:
+    - "\u5F85\u3064"
+    zhcn:
+    - "\u7B49\u5F85"
+    zhtw:
+    - "\u7B49\u5F85"
+  - en:
+    - settings
+    ja:
+    - "\u8A2D\u5B9A"
+    zhcn:
+    - "\u8BBE\u7F6E"
+    zhtw:
+    - "\u8A2D\u7F6E"
+  - en:
+    - EASY
+    ja:
+    - EASY
+    zhcn:
+    - "\u7B80\u5355"
+    zhtw:
+    - "\u7C21\u55AE"
+  - en:
+    - HARD
+    ja:
+    - HARD
+    zhcn:
+    - "\u786C"
+    zhtw:
+    - "\u786C"
+  - en:
+    - stage
+    ja:
+    - "\u30B9\u30C6\u30FC\u30B8"
+    zhcn:
+    - "\u9636\u6BB5"
+    zhtw:
+    - "\u968E\u6BB5"
+  - en:
+    - hello
+    ja:
+    - "\u3053\u3093\u306B\u3061\u306F"
+    zhcn:
+    - "\u4F60\u597D"
+    zhtw:
+    - "\u4F60\u597D"
+  - en:
+    - done
+    ja:
+    - "\u5B8C\u4E86"
+    zhcn:
+    - DONE
+    zhtw:
+    - DONE
+  - en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"
+  - en:
+    - remove
+    ja:
+    - "\u524A\u9664"
+    zhcn:
+    - "\u53BB\u6389"
+    zhtw:
+    - "\u53BB\u6389"
+  - en:
+    - showmenu
+    ja:
+    - "\u30E1\u30CB\u30E5\u30FC\u8868\u793A"
+    zhcn:
+    - "\u663E\u793A\u83DC\u5355"
+    zhtw:
+    - "\u986F\u793A\u83DC\u55AE"
+  - en:
+    - hidemenu
+    ja:
+    - "\u30E1\u30CB\u30E5\u30FC\u975E\u8868\u793A"
+    zhcn:
+    - "\u9690\u85CF\u83DC\u5355"
+    zhtw:
+    - "\u96B1\u85CF\u83DC\u55AE"
+  - en:
+    - adjust
+    ja:
+    - "\u8ABF\u6574"
+    zhcn:
+    - "\u8C03\u6574"
+    zhtw:
+    - "\u8ABF\u6574"

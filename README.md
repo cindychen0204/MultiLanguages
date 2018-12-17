@@ -44,17 +44,10 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 ![alt text](https://i.gyazo.com/d76a00b2ed50a9d6c3fa2ff171299f25.png)
 
 
-# Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
-
-<b>*</b> インポートの前に　/　Before importing <br>
-このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
-Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Other Settings>Scripting Runtime Version into `Experimental(.NET 4.6 Equivalent) `
-<br> <br>
-<b>**</b> MixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
-検索機能を使い、Newtonsoft.JsonのInclude PlatformをEditorだけにしてください。
-Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only and apply it.
 <br>
 
+
+## Google Sheet setting
 Googleアカウントの設定に無事に成功すれば、 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' フォルダの下に'GoogleDataSettings.asset' の設定を行います。
 まず、ダウンロードしたJSONファイルをプロジェクトにインポートし、GoogleDataSettings.assetの`I have OAuth2 JSON file`にチェックを入れて、Jsonファイルにパスを設定してください。
 Client ID　と　Client Secretが自動判別されることを確認した後、'Start Authentication'を押し、認証を完成させてください。（GIFに参照することも可能）
@@ -73,8 +66,21 @@ Or you could reference in this GIF:
 Now, press `Update` buttom on `MultiLanguagePlatform\TranslationSettings\GoogleSheet\Import Setting.asset` to get the data. <br>
 Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 
+<br>
 
-# Step 3
+# Step 3 : Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
+
+<b>*</b> インポートの前に　/　Before importing <br>
+このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
+Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Other Settings>Scripting Runtime Version into `Experimental(.NET 4.6 Equivalent) `
+<br> <br>
+<b>**</b> MixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
+検索機能を使い、Newtonsoft.JsonのInclude PlatformをEditorだけにしてください。
+Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only and apply it.
+<br>
+
+
+# Step 4
 パッケージをインポートした時点でもう開発は可能となります。データを更新する場合。（CSVの場合は不要） <br>
 EXCEL:  MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.assetの <br>
 `Update`を押してください。<br>

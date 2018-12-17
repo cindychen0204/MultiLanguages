@@ -2,7 +2,7 @@
 
 
 このプロジェクトは4国語の翻訳プラットフォームを提供し（英、日、中国語簡体、中国語繁体）、原則的に[Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)を使用しています。
-もし、インポートの必要性を見つける場合は、Unityに対応したバージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
+インポートの必要性を見つける場合は、Unityに対応したバージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
 <br>
 
 This project provives 4 languages translation platform in Unity. (English,Japanese,Simplfied Chinese,Traditional Chinese) and basically is built on [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
@@ -50,12 +50,12 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
 Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Other Settings>Scripting Runtime Version into `Experimental(.NET 4.6 Equivalent) `
 <br> <br>
-<b>**</b> もしMixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
+<b>**</b> MixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
 検索機能を使い、Newtonsoft.JsonのInclude PlatformをEditorだけにしてください。
 Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only and apply it.
 <br>
 
-もし、先ほどのGoogleアカウントの設定に無事に成功すれば、 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' フォルダの下に'GoogleDataSettings.asset' の設定を行います。
+Googleアカウントの設定に無事に成功すれば、 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' フォルダの下に'GoogleDataSettings.asset' の設定を行います。
 まず、ダウンロードしたJSONファイルをプロジェクトにインポートし、GoogleDataSettings.assetの`I have OAuth2 JSON file`にチェックを入れて、Jsonファイルにパスを設定してください。
 Client ID　と　Client Secretが自動判別されることを確認した後、'Start Authentication'を押し、認証を完成させてください。（GIFに参照することも可能）
 <br><br>

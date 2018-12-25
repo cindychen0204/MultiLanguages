@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4387000794551972}
   - component: {fileID: 23184812656184030}
   - component: {fileID: 102134751721631472}
-  - component: {fileID: 114008592070884146}
+  - component: {fileID: 114189405687331384}
   m_Layer: 0
   m_Name: Textmesh(CSV)
   m_TagString: Untagged
@@ -97,7 +97,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114008592070884146
+--- !u!114 &114189405687331384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -105,11 +105,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540680172107314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e55ebcfb199ae4bbbf1864332f5f55, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e3316b143474974592c0df9453ab215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsDetectTextLanguage: 1
-  SourceLanguage: 1
+  SourceLanguage: 0
   IsDetectEnvironmentalLanguage: 1
   TargetLanguage: 0
   TranslateResource: 2

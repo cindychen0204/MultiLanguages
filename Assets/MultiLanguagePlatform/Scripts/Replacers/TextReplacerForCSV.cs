@@ -1,13 +1,14 @@
-﻿using System;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Text.RegularExpressions;
-using UnityEngine;
+using System;
 
-namespace MultiLanguageTK
-{
-    [RequireComponent(typeof(GUIText))]
-    public class GUITextReplacer : TranslationTextBase
-    {
-        [SerializeField] private GUIText GUItext;
+namespace MultiLanguageTK {
+
+    [RequireComponent(typeof(Text))]
+    public class TextReplacerForCSV : TranslationTextBase
+    { 
+        [SerializeField] private Text UItext;
 
 
         private ITranslator _translator;
@@ -52,9 +53,12 @@ namespace MultiLanguageTK
             return Regex.IsMatch(str, @"^[a-zA-Z]+$");
         }
 
+
+
         /// <summary>
-        /// Memo: Implemented before Start() method in Loaders.cs, and after TextReplacer conflict
-        void Main()
+        /// Memo: Implemented before Start() method in Loaders.cs
+        /// </summary>
+        void Awake()
         {
             switch (TranslateResource)
             {
@@ -83,6 +87,7 @@ namespace MultiLanguageTK
             _translator.DictionaryInjected += TranslateDictionaryInjected;
 
         }
+
         public override void TranslateDictionaryInjected(object source, EventArgs e)
         {
 
@@ -98,18 +103,22 @@ namespace MultiLanguageTK
             //テキストの言語を取得
             if (IsDetectTextLanguage)
             {
-                DetectTextLanguage(GUItext.text);
+                DetectTextLanguage(UItext.text);
 
             }
 
-            transResults = _translator.TranslateResults(SourceLanguage, TargetLanguage, GUItext.text);
+            transResults = _translator.TranslateResults(SourceLanguage, TargetLanguage, UItext.text);
+
+
 
             if (transResults != null)
             {
-                GUItext.text = transResults;
+                UItext.text = transResults;
             }
 
-            
+
+
+
         }
 
         protected override void DetectEnvironmentalLanguage()
@@ -151,5 +160,9 @@ namespace MultiLanguageTK
 
 
         }
+
     }
+    
+
 }
+

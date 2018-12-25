@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace MultiLanguageTK
 {
-    [RequireComponent(typeof(GUIText))]
-    public class GUITextReplacer : TranslationTextBase
+    [RequireComponent(typeof(TextMesh))]
+    public class TextMeshReplacerForCSV : TranslationTextBase
     {
-        [SerializeField] private GUIText GUItext;
+        [SerializeField] private TextMesh textmesh;
 
+        private ITranslator _translator;    
 
-        private ITranslator _translator;
         /// <summary>
         /// 正規表現で文字列を綺麗にする
         /// </summary>
@@ -52,8 +52,39 @@ namespace MultiLanguageTK
             return Regex.IsMatch(str, @"^[a-zA-Z]+$");
         }
 
+        void Awake()
+        {
+            switch (TranslateResource)
+            {
+                case TranslateResource.GoogleSheet:
+
+                    _translator = (ITranslator) GoogleSheetLoader.Instance;
+                    GoogleSheetLoader.Instance.OngoogleSheetDictionaryInjected();
+
+                    break;
+
+                case TranslateResource.Excel:
+
+                    _translator = (ITranslator) ExcelLoader.Instance;
+                    ExcelLoader.Instance.OnExcelDictionaryInjected();
+
+                    break;
+
+                case TranslateResource.CSV:
+
+                    _translator = (ITranslator) CSVLoader.Instance;
+                    CSVLoader.Instance.OnCSVDictionaryInjected();
+
+                    break;
+               
+            }
+
+            _translator.DictionaryInjected += TranslateDictionaryInjected;
+        }
+
         /// <summary>
-        /// Memo: Implemented before Start() method in Loaders.cs, and after TextReplacer conflict
+        /// Memo: Implemented before Start() method in Loaders.cs, for CSV have to get in Awake()
+        /// </summary>
         void Main()
         {
             switch (TranslateResource)
@@ -78,14 +109,17 @@ namespace MultiLanguageTK
                     CSVLoader.Instance.OnCSVDictionaryInjected();
 
                     break;
+
             }
 
             _translator.DictionaryInjected += TranslateDictionaryInjected;
 
         }
+
+
+
         public override void TranslateDictionaryInjected(object source, EventArgs e)
         {
-
             string transResults = null;
 
             //環境の言語を取得
@@ -98,18 +132,18 @@ namespace MultiLanguageTK
             //テキストの言語を取得
             if (IsDetectTextLanguage)
             {
-                DetectTextLanguage(GUItext.text);
+                DetectTextLanguage(textmesh.text);
 
             }
 
-            transResults = _translator.TranslateResults(SourceLanguage, TargetLanguage, GUItext.text);
+            transResults = _translator.TranslateResults(SourceLanguage, TargetLanguage, textmesh.text);
 
             if (transResults != null)
             {
-                GUItext.text = transResults;
+                textmesh.text = transResults;
             }
 
-            
+
         }
 
         protected override void DetectEnvironmentalLanguage()
@@ -148,7 +182,6 @@ namespace MultiLanguageTK
                 SourceLanguage = Languages.English;
 
             }
-
 
         }
     }

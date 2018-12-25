@@ -58,6 +58,7 @@ namespace MultiLanguageTK
             }
         }
 
+
         /// <summary>
         /// イベントの購読者を見つける
         /// </summary>
@@ -65,6 +66,7 @@ namespace MultiLanguageTK
         {
             DictionaryInjected?.Invoke(this, EventArgs.Empty);
         }
+
 
         [Tooltip("CSVファイルのパス（MultiLanguagePlatform/Resources/CSV/...）")]
         [SerializeField]
@@ -76,14 +78,10 @@ namespace MultiLanguageTK
         /// </summary>
         void Start()
         {
+
             Load(CSVFileName);
+            
         }
-
-        /// <summary>
-        /// 重複を避ける
-        /// </summary>
-        private int count = 0;
-
 
         /// <summary>
         /// CSVファイルを読み込みます
@@ -113,43 +111,57 @@ namespace MultiLanguageTK
 
 
                     // English -> ??
-                    AddIfNotExists(new TranslationKey(Languages.English, Languages.Japanese, column[0].ToLower()), column[1]);
+                    AddIfNotExists(new TranslationKey(Languages.English, Languages.Japanese, column[0].ToLower()),
+                        column[1]);
 
-                    AddIfNotExists(new TranslationKey(Languages.English, Languages.ChineseSimplified, column[0].ToLower()), column[2]);
+                    AddIfNotExists(
+                        new TranslationKey(Languages.English, Languages.ChineseSimplified, column[0].ToLower()),
+                        column[2]);
 
-                    AddIfNotExists(new TranslationKey(Languages.English, Languages.ChineseTraditional, column[0].ToLower()), column[3]);
+                    AddIfNotExists(
+                        new TranslationKey(Languages.English, Languages.ChineseTraditional, column[0].ToLower()),
+                        column[3]);
 
 
                     //Japanese - > ??
                     AddIfNotExists(new TranslationKey(Languages.Japanese, Languages.English, column[1]), column[0]);
 
-                    AddIfNotExists(new TranslationKey(Languages.Japanese, Languages.ChineseSimplified, column[1]), column[2]);
+                    AddIfNotExists(new TranslationKey(Languages.Japanese, Languages.ChineseSimplified, column[1]),
+                        column[2]);
 
-                    AddIfNotExists(new TranslationKey(Languages.Japanese, Languages.ChineseTraditional, column[1]), column[3]);
+                    AddIfNotExists(new TranslationKey(Languages.Japanese, Languages.ChineseTraditional, column[1]),
+                        column[3]);
 
 
                     //ChineseSimplified -> ??
-                    AddIfNotExists(new TranslationKey(Languages.ChineseSimplified, Languages.English, column[2]), column[0]);
+                    AddIfNotExists(new TranslationKey(Languages.ChineseSimplified, Languages.English, column[2]),
+                        column[0]);
 
-                    AddIfNotExists(new TranslationKey(Languages.ChineseSimplified, Languages.Japanese, column[2]), column[1]);
+                    AddIfNotExists(new TranslationKey(Languages.ChineseSimplified, Languages.Japanese, column[2]),
+                        column[1]);
 
-                    AddIfNotExists(new TranslationKey(Languages.ChineseSimplified, Languages.ChineseTraditional, column[2]), column[3]);
+                    AddIfNotExists(
+                        new TranslationKey(Languages.ChineseSimplified, Languages.ChineseTraditional, column[2]),
+                        column[3]);
 
 
                     //ChineseTraditional -> ??
-                    AddIfNotExists(new TranslationKey(Languages.ChineseTraditional, Languages.English, column[3]), column[0]);
+                    AddIfNotExists(new TranslationKey(Languages.ChineseTraditional, Languages.English, column[3]),
+                        column[0]);
 
-                    AddIfNotExists(new TranslationKey(Languages.ChineseTraditional, Languages.Japanese, column[3]), column[1]);
+                    AddIfNotExists(new TranslationKey(Languages.ChineseTraditional, Languages.Japanese, column[3]),
+                        column[1]);
 
-                    AddIfNotExists(new TranslationKey(Languages.ChineseTraditional, Languages.ChineseSimplified, column[3]), column[2]);
+                    AddIfNotExists(
+                        new TranslationKey(Languages.ChineseTraditional, Languages.ChineseSimplified, column[3]),
+                        column[2]);
 
-                    
+
                 }
             }
-            OnCSVDictionaryInjected();
+
         }
 
-     
 
         /// <summary>
         /// 翻訳結果を返す
@@ -187,5 +199,7 @@ namespace MultiLanguageTK
             }
 
         }
+
+
     }//class
 }//namespace

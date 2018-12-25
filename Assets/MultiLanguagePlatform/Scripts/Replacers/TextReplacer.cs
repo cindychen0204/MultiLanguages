@@ -53,8 +53,10 @@ namespace MultiLanguageTK
             return Regex.IsMatch(str, @"^[a-zA-Z]+$");
         }
 
+
+
         /// <summary>
-        /// Memo: Implemented before Start() method in MultiLanguageManger.cs
+        /// Memo: Implemented before Start() method in Loaders.cs
         /// </summary>
         void Main()
         {
@@ -63,18 +65,21 @@ namespace MultiLanguageTK
                 case TranslateResource.GoogleSheet:
 
                     _translator = (ITranslator)GoogleSheetLoader.Instance;
+                    GoogleSheetLoader.Instance.OngoogleSheetDictionaryInjected();
 
                     break;
 
                 case TranslateResource.Excel:
 
                     _translator = (ITranslator)ExcelLoader.Instance;
+                    ExcelLoader.Instance.OnExcelDictionaryInjected();
 
                     break;
 
                 case TranslateResource.CSV:
 
                     _translator = (ITranslator)CSVLoader.Instance;
+                    CSVLoader.Instance.OnCSVDictionaryInjected();
 
                     break;
             }
@@ -103,10 +108,15 @@ namespace MultiLanguageTK
 
             transResults = _translator.TranslateResults(SourceLanguage, TargetLanguage, UItext.text);
 
+
+
             if (transResults != null)
             {
                 UItext.text = transResults;
             }
+
+            
+            
 
         }
 

@@ -48,11 +48,11 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 
 
 ## Google Sheet Setting
-Googleアカウントの設定に無事に成功すれば、 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' フォルダの下に'GoogleDataSettings.asset' の設定を行います。
+Googleアカウントの設定に無事に成功すれば、 `Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor` フォルダの下に'GoogleDataSettings.asset' の設定を行います。
 まず、ダウンロードしたJSONファイルをプロジェクトにインポートし、GoogleDataSettings.assetの`I have OAuth2 JSON file`にチェックを入れて、Jsonファイルにパスを設定してください。
 Client ID　と　Client Secretが自動判別されることを確認した後、'Start Authentication'を押し、認証を完成させてください。（GIFに参照することも可能）
 <br><br>
-If you successfully get the json private key then select 'GoogleDataSettings.asset' file which can be found under 'Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor' folder <br>
+If you successfully get the json private key then select 'GoogleDataSettings.asset' file which can be found under `Assets/MultiLanguagePlatform/QuickSheet/GDataPlugin/Editor` folder <br>
 First, set the downloaded json private key to the 'JSON File'.  <br>
 Add Check `I have OAuth2 JSON file` as true, then direct the json file. <br>
 2. Now, you can see 'Client ID' and 'Client Secret' will be automatically sepcified <br>
@@ -63,7 +63,8 @@ Or you could reference in this GIF: <br>
 
 そして、 `Update`を押してデータを取得する。<br>
 ここからGoogleSpreadSheetの開発は可能となります。 <br>
-Now, press `Update` buttom on `MultiLanguagePlatform\TranslationSettings\GoogleSheet\Import Setting.asset` to get the data. <br>
+<br>
+Now, press `Update` buttom to get the data. <br>
 Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 
 <br>
@@ -76,7 +77,7 @@ Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja) という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語:en`、`日本語:ja`、`中国語簡体字:zh-CN`、`中国語繁体字:zh-TW`でGoogleSheetに代表します。
 <br>
 
-Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) function when implementing automacital translation. Simple check with git below<br>
+Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) function when implementing automacital translation. Simple check with git below <br>
 Represent Language as `English:en`, `Japanese:ja`, `Simplified Chinese:zh-CN`, `Traditional Chinese:zh-TW` in GoogleSheet.
 GOOGLETRANSLATE(text, [source_language, target_language])
 
@@ -86,7 +87,7 @@ GOOGLETRANSLATE(text, [source_language, target_language])
 
 <br><br>
 
-# 手順No.3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
+# 手順No.3 / Procedure No.3 Import UnityPackage from [MultiLanguagesPlatform Releases](https://github.com/cindychen0204/MultiLanguagesPlatform/releases)
 
 <b>*</b> インポートの前に　/　Before importing <br>
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
@@ -115,6 +116,6 @@ and press `Update` buttom to make an update.
 Do not press `Reimport` because it will destroy the whole data structure.
 
 
-Wish you have a happy development.
+Wish you have a happy development journey.
 
 *Reference from [Unity-QuickSheet](https://github.com/kimsama/Unity-QuickSheet)

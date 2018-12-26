@@ -10,28 +10,33 @@ namespace MultiLanguageTK
     {
 
         /// <summary>
+        /// csvfile
         /// CSVファイル
         /// </summary>
         private TextAsset csvFile;
 
         /// <summary>
+        /// Create dictionary
         /// ディクショナリー
         /// TranslationKey<元言語、ターゲット言語、翻訳内容>, Dictionary のValueは翻訳結果
         /// </summary>
         private static Dictionary<TranslationKey, string> languageDict = new Dictionary<TranslationKey, string>();
 
         /// <summary>
+        /// Creating event: data injected to languageDict.
         /// イベント作成
         /// </summary>
         public event EventHandler DictionaryInjected;
 
         /// <summary>
+        /// Implement singleton as private
         /// シングルトンの実装（プライベート）
         /// </summary>
         private static CSVLoader _instance;
 
 
         /// <summary>
+        /// Implement singleton as public
         /// シングルトンの実装（パブリック）
         /// </summary>
         public static CSVLoader Instance
@@ -60,6 +65,7 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// Find Subcriber
         /// イベントの購読者を見つける
         /// </summary>
         public void OnCSVDictionaryInjected()
@@ -74,6 +80,7 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// After initialization, start loading
         /// 初期化の後（購読者ReplacerたちのMainメソッド）に、ロードを始める
         /// </summary>
         void Start()
@@ -84,6 +91,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Load data from csv
         /// CSVファイルを読み込みます
         /// </summary>
         /// <param name="filenameWithExt">拡張子付きファイル名</param>
@@ -164,6 +172,7 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// Return a translation result
         /// 翻訳結果を返す
         /// </summary>
         /// <param name="resource"></param>元言語
@@ -185,6 +194,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Avoid any error while injecting into languageDict
         /// エラーを回避し、ディクショナリーに入れる
         /// </summary>
         /// <param name="key"></param>翻訳キー

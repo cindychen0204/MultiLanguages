@@ -13,6 +13,7 @@ namespace MultiLanguageTK
 
         private ITranslator _translator;
         /// <summary>
+        /// Check with regular expression
         /// 正規表現で文字列を綺麗にする
         /// </summary>
         /// <param name="str"></param>
@@ -27,6 +28,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Detect Japanese
         /// 日本語を判断
         /// </summary>
         /// <param name="str"></param>
@@ -42,6 +44,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Detect English
         /// 英語を判断
         /// </summary>
         /// <param name="str"></param>
@@ -91,7 +94,7 @@ namespace MultiLanguageTK
         {
 
             string transResults = null;
-
+            //Detect environmental language
             //環境の言語を取得
             if (IsDetectEnvironmentalLanguage)
             {
@@ -99,6 +102,7 @@ namespace MultiLanguageTK
 
             }
 
+            //Obtain Language of Text
             //テキストの言語を取得
             if (IsDetectTextLanguage)
             {

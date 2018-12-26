@@ -6,12 +6,14 @@ namespace MultiLanguageTK
     using System;
 
     /// <summary>
+    /// Load data from GoogleSheet
     /// GoogleSheetから取得したデータをロードする
     /// </summary>
     public sealed class GoogleSheetLoader : MonoBehaviour, ITranslator
     {
 
         /// <summary>
+        /// DO NOT CHANGE THE NAME,
         /// TranslationといったScriptableObjectを取得（名前変更禁止）
         /// </summary>
         [SerializeField] private Translation _translation;
@@ -147,6 +149,7 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// Return translation result
         /// 翻訳結果を返す
         /// </summary>
         /// <param name="resource"></param>ソース言語
@@ -168,6 +171,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Avoid any error from injecting data into dictionary
         /// エラーを回避し、ディクショナリーに入れる
         /// </summary>
         /// <param name="key"></param>翻訳キー

@@ -1,8 +1,8 @@
 ﻿using System;
 
 namespace MultiLanguageTK
-{   
-    
+{
+    //Support language in MultiLanguageTK
     //パッケージに使われる予定のリスト    
     public enum Languages
     {
@@ -16,6 +16,7 @@ namespace MultiLanguageTK
     public interface ITranslator
     {
         /// <summary>
+        /// Implement Translation : return translation result
         /// Translation インターフェース：翻訳結果を返す
         /// </summary>
         /// <param name="resourceLang"></param>

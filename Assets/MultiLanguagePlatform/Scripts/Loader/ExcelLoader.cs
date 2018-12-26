@@ -10,18 +10,21 @@ namespace MultiLanguageTK
     public sealed class ExcelLoader : MonoBehaviour, ITranslator
     {
         /// <summary>
+        /// DO NOT CHANGE NAME. Obatain ScriptableObject named as Translation
         /// TranslationといったScriptableObjectを取得（名前変更禁止）
         /// </summary>
         [SerializeField] private TranslateExcel _translation;
 
 
         /// <summary>
+        /// Inisitialize TranslationKey
         /// TranslationKeyの初期化
         /// </summary>
         private static TranslationKey TranslationKey;
 
 
         /// <summary>
+        /// Create languageDict using key as TranslationKey<source language, target language, input>
         /// ディクショナリー
         /// TranslationKey<元言語、ターゲット言語、翻訳内容>, Dictionary のValueは翻訳結果
         /// </summary>
@@ -34,11 +37,13 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// Implement singleton as private
         /// シングルトンの実装（プライベート）
         /// </summary>
         private static ExcelLoader _instance;
 
         /// <summary>
+        /// Implement singleton as public
         /// シングルトンの実装（パブリック）
         /// </summary>
         public static ExcelLoader Instance
@@ -83,6 +88,7 @@ namespace MultiLanguageTK
         }
 
         /// <summary>
+        /// Inject Excel into languageDict
         /// Excelのデータをインジェクト
         /// </summary>
         private void Load()
@@ -139,6 +145,7 @@ namespace MultiLanguageTK
 
 
         /// <summary>
+        /// Return translation result
         /// 翻訳結果を返す
         /// </summary>
         /// <param name="resource"></param>ソース言語

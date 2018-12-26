@@ -76,7 +76,7 @@ Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Othe
 <br> <br>
 <b>**</b> MixedRealityToolKitを使う場合は/ Using MixedRealityToolKit
 Asset/MultiLanguagePlatform/QuickSheet/GDataPluging/Editor/Googleの`Newtonsoft.Json.dll`のInclude Platformを`Standalone`だけにしてください。
-もし使わない場合は、Newtonsoft.JsonのInclude Platformを`editor`だけにになっていることを確認してください。<br>
+もし使わない場合は、Newtonsoft.JsonのInclude Platformを`Editor`だけにになっていることを確認してください。<br>
 Please set Asset/MultiLanguagePlatform/QuickSheet/GDataPluging/Editor/Google `Newtonsoft.Json` file's `Include Platform` settings into `Standalone` only and apply it.
 If not, check `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only as default.
 <br>

@@ -1,11 +1,11 @@
 # MultiLanguagesの使用方法 / Introduction
 
 
-このプロジェクトは4国語の翻訳プラットフォームを提供し（英、日、中国語簡体、中国語繁体）、原則的に[Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)を使用しています。
-インポートの必要性を見つける場合は、Unityに対応したバージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
+このプロジェクトは4国語の翻訳プラットフォームを提供し（英語、日本語、中国語簡体、中国語繁体）、UWP（HoloLens）とPC上の開発に対応している。
+インポートの必要性を見つける場合は、Unityに対応した[Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)バージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
 <br>
 
-This project provives 4 languages translation platform in Unity. (English,Japanese,Simplfied Chinese,Traditional Chinese) and basically is built on [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
+This project provives 4 languages translation platform in Unity. (English,Japanese,Simplfied Chinese,Traditional Chinese). Supporting on UWP and PC platform. Users can download [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
 
 ☆using [Unity-QuickSheet](https://github.com/kimsama/Unity-QuickSheet) scripts and pluding to gather GoogleSheet and Excel datum.
 
@@ -74,10 +74,14 @@ Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
 Set your UnityProject to C#6.0 with following: Edit>Project Settings>Player>Other Settings>Scripting Runtime Version into `Experimental(.NET 4.6 Equivalent) `
 <br> <br>
-<b>**</b> MixedRealityToolKitを使わない場合は/ If you are not using MixedRealityToolKit
-検索機能を使い、Newtonsoft.JsonのInclude PlatformをEditorだけにしてください。
-Please set `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only and apply it.
+<b>**</b> MixedRealityToolKitを使う場合は/ Using MixedRealityToolKit
+MultiLanguagePlatform/QuickSheet/GDataPluging/Editor/GoogleのNewtonsoft.Json.dllのInclude Platformを`Standalone`だけにしてください。
+もし使わない場合は、Newtonsoft.JsonのInclude Platformを`editor`だけにになっていることを確認してください。
+Please set `Newtonsoft.Json` file's `Include Platform` settings into `Standalone` only and apply it.
+If not, check `Newtonsoft.Json` file's `Include Platform` settings into `Editor` only as default.
 <br>
+
+
 
 
 # 手順4 / Procedure No.4

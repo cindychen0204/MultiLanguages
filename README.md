@@ -72,13 +72,17 @@ Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 
 ## GoogleSheetの自動翻訳について/ About automactial translation for GoogleSheet
 <br>
-[GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja)という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語en`、`日本語ja`、`中国語簡体字zh-CN`、`中国語繁体字zh-TW`でGoogleSheetに代表します。
+
+[GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja) という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語en`、`日本語ja`、`中国語簡体字zh-CN`、`中国語繁体字zh-TW`でGoogleSheetに代表します。
 <br>
-Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) when implementing automacital translation. Simple check with git below<br>
+
+Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) function when implementing automacital translation. Simple check with git below<br>
 Represent Language as `英語en`, `日本語ja`, `中国語簡体字zh-CN`, `中国語繁体字zh-TW` in GoogleSheet.
 GOOGLETRANSLATE(text, [source_language, target_language])
 
-[](https://gyazo.com/78d52609b520c383e3a22776dcb29d1d)
+<br>
+
+![](https://i.gyazo.com/78d52609b520c383e3a22776dcb29d1d.gif)
 
 
 # 手順No.3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)

@@ -105,13 +105,18 @@ If not, check `Newtonsoft.Json` file's `Include Platform` settings into `Editor`
 
 # 手順No.4 / Procedure No.4
 パッケージをインポートした時点でもう開発は可能となります。データを更新する場合。（CSVの場合は不要） <br>
-EXCEL:  MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.assetの <br>
+EXCEL:  MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.asset、 <br>
+GoogleSheet:  MultiLanguagePlatform\TranslationSettings\GoogleSheet\Import Setting.asset
+
 `Update`を押してください。<br>
 `Reimport`はデータの構造もリセットされてしまうので押さないでください。 <br>
 
+
 It is possible to develop once you import this Unity package.
-However, if you want to update your data (CSV is not nessesary)
-go MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.asset
+However, if you want to update your data (CSV is not nessesary), go to
+Excel: MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.asset <br>
+GoogleSheet:  MultiLanguagePlatform\TranslationSettings\GoogleSheet\Import Setting.asset
+
 and press `Update` buttom to make an update.
 Do not press `Reimport` because it will destroy the whole data structure.
 

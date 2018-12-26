@@ -1,4 +1,4 @@
-# MultiLanguagesの使用方法 / About MultiLanguages
+# MultiLanguagesPlatformの使用方法 / About MultiLanguagesPlatform
 
 
 このプロジェクトは4国語の翻訳プラットフォームを提供し（英語、日本語、中国語簡体、中国語繁体）、UWP（HoloLens）とPC上の開発に対応している。

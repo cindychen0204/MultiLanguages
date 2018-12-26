@@ -5,9 +5,9 @@
 インポートの必要性を見つける場合は、Unityに対応した[Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)バージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
 <br>
 
-This project provives 4 languages translation platform in Unity as omni directional. (English,Japanese,Simplfied Chinese,Traditional Chinese). Supporting on UWP and PC platform. Users can download [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
+This project provives 4 languages translation platform in Unity in omni direction. (English,Japanese,Simplfied Chinese,Traditional Chinese). Supporting on UWP and PC platform. Users can download [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)'s  Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
 
-☆using [Unity-QuickSheet](https://github.com/kimsama/Unity-QuickSheet) scripts and pluding to gather GoogleSheet and Excel datum.
+☆using [Unity-QuickSheet](https://github.com/kimsama/Unity-QuickSheet) scripts and plugin to gather GoogleSheet and Excel data.
 
 
 
@@ -20,7 +20,7 @@ Decide your project's language data source　<br>
 ・CSV　<br>
 
 # 手順No.2 / Procedure No.2
-(GoogleSheetではない場合は省略/If not using GoogleSheet, please ignore #2)
+(GoogleSheetではない場合は#2を省略/If not using GoogleSheet, please ignore #2)
 <br>
 まず認証から始めます。[Google Developer Console](https://console.developers.google.com/apis/dashboard?project=test20181110-1541853844271&duration=PT1H)　にアクセスし、新しいプロジェクトを作成し、
 Google Drive APIを有効にし、OAuth 2.0 クライアント IDを作成し、認証情報Jsonファイルをダウンロードしてください。この設定は、google sreadsheetを使用するのに必要です。
@@ -39,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXs
 <br><br>
 Create a google spreadsheet on your 'Google Drive' after logging in your 'Google Drive' with your account.
 Please name the Worksheet as "Translation". <br>
-Also, pay attention that you have to EXACTLY copy the sheet from this template.
+Also, pay attention that you have to copy the sheet EXACTLY from this template.
 https://docs.google.com/spreadsheets/d/1uaXqVP4XUuIsGnzDPZk2q_OvTNz1z6T8ZrzYxTXsMgk/edit?usp=sharing
 ![alt text](https://i.gyazo.com/11d35db6a7cd912eaaef546ccf038732.png)
 
@@ -73,17 +73,18 @@ Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 ## GoogleSheetの自動翻訳について/ About automactial translation for GoogleSheet
 <br>
 
-[GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja) という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語en`、`日本語ja`、`中国語簡体字zh-CN`、`中国語繁体字zh-TW`でGoogleSheetに代表します。
+[GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja) という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語:en`、`日本語:ja`、`中国語簡体字:zh-CN`、`中国語繁体字:zh-TW`でGoogleSheetに代表します。
 <br>
 
 Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) function when implementing automacital translation. Simple check with git below<br>
-Represent Language as `英語en`, `日本語ja`, `中国語簡体字zh-CN`, `中国語繁体字zh-TW` in GoogleSheet.
+Represent Language as `English:en`, `Japanese:ja`, `Simplified Chinese:zh-CN`, `Traditional Chinese:zh-TW` in GoogleSheet.
 GOOGLETRANSLATE(text, [source_language, target_language])
 
 <br>
 
 ![](https://i.gyazo.com/78d52609b520c383e3a22776dcb29d1d.gif)
 
+<br><br>
 
 # 手順No.3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
 

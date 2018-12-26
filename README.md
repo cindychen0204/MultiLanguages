@@ -1,17 +1,17 @@
-# MultiLanguagesの使用方法 / Introduction
+# MultiLanguagesの使用方法 / About MultiLanguages
 
 
 このプロジェクトは4国語の翻訳プラットフォームを提供し（英語、日本語、中国語簡体、中国語繁体）、UWP（HoloLens）とPC上の開発に対応している。
 インポートの必要性を見つける場合は、Unityに対応した[Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)バージョンを[Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) からダウンロードしてください。
 <br>
 
-This project provives 4 languages translation platform in Unity. (English,Japanese,Simplfied Chinese,Traditional Chinese). Supporting on UWP and PC platform. Users can download [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
+This project provives 4 languages translation platform in Unity as omni directional. (English,Japanese,Simplfied Chinese,Traditional Chinese). Supporting on UWP and PC platform. Users can download [Mixed Reality ToolKit](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), please download each Unity package at [Release Pages](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) if you find it is necessary.
 
 ☆using [Unity-QuickSheet](https://github.com/kimsama/Unity-QuickSheet) scripts and pluding to gather GoogleSheet and Excel datum.
 
 
 
-# 手順1 / Procedure No.1
+# 手順No.1 / Procedure No.1
 言語ソースを決める <br>
 Decide your project's language data source　<br>
 
@@ -19,7 +19,7 @@ Decide your project's language data source　<br>
 ・Excel　<br>
 ・CSV　<br>
 
-# 手順2 / Procedure No.2
+# 手順No.2 / Procedure No.2
 (GoogleSheetではない場合は省略/If not using GoogleSheet, please ignore #2)
 <br>
 まず認証から始めます。[Google Developer Console](https://console.developers.google.com/apis/dashboard?project=test20181110-1541853844271&duration=PT1H)　にアクセスし、新しいプロジェクトを作成し、
@@ -67,8 +67,21 @@ Now, press `Update` buttom on `MultiLanguagePlatform\TranslationSettings\GoogleS
 Whole data could be seen at Translation.asset in GoogleSheet folder. <br>
 
 <br>
+<br>
 
-# 手順3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
+
+## GoogleSheetの自動翻訳について/ About automactial translation for GoogleSheet
+<br>
+[GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=ja)という関数を利用して、自動翻訳を行います。以下のGif動画を軽くご確認ください。<br>　GOOGLETRANSLATE(テキスト, [ソース言語, ターゲット言語])を使い、言語は`英語en`、`日本語ja`、`中国語簡体字zh-CN`、`中国語繁体字zh-TW`でGoogleSheetに代表します。
+<br>
+Using [GOOGLETRANSLATE](https://support.google.com/docs/answer/3093331?hl=en) when implementing automacital translation. Simple check with git below<br>
+Represent Language as `英語en`, `日本語ja`, `中国語簡体字zh-CN`, `中国語繁体字zh-TW` in GoogleSheet.
+GOOGLETRANSLATE(text, [source_language, target_language])
+
+[](https://gyazo.com/78d52609b520c383e3a22776dcb29d1d)
+
+
+# 手順No.3 / Procedure No.3 Import UnityPackage from [MultiLanguages Releases](https://github.com/cindychen0204/MultiLanguages/releases)
 
 <b>*</b> インポートの前に　/　Before importing <br>
 このパッケージはC#6.0が必要ですので、Edit>Project Settings>Player>Other Settings>Scripting Runtime Version を `Experimental(.NET 4.6 Equivalent) `に設定してください。<br>
@@ -84,7 +97,7 @@ If not, check `Newtonsoft.Json` file's `Include Platform` settings into `Editor`
 
 
 
-# 手順4 / Procedure No.4
+# 手順No.4 / Procedure No.4
 パッケージをインポートした時点でもう開発は可能となります。データを更新する場合。（CSVの場合は不要） <br>
 EXCEL:  MultiLanguagePlatform\TranslationSettings\Excel\TranslateExcelImporter.assetの <br>
 `Update`を押してください。<br>
